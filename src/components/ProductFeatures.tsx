@@ -9,6 +9,10 @@ type FeatureProps = {
   isReversed?: boolean;
 };
 
+export interface ProductFeaturesProps {
+  productId: string;
+}
+
 const Feature: React.FC<FeatureProps> = ({
   image,
   title,
@@ -45,7 +49,9 @@ const Feature: React.FC<FeatureProps> = ({
   </div>
 );
 
-export const ProductFeatures: React.FC = () => {
+export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
+  productId,
+}) => {
   const features = [
     {
       image: "/product-detail-1.jpeg",
@@ -67,26 +73,6 @@ export const ProductFeatures: React.FC = () => {
         {features.map((feature, index) => (
           <Feature key={index} {...feature} isReversed={index % 2 === 1} />
         ))}
-      </div>
-
-      {/* Stats Section */}
-      <div className="mt-16 md:mt-24">
-        <div className="max-w-3xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">30%</div>
-              <div className="text-sm text-gray-600">Longer Lasting Soap</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">5k+</div>
-              <div className="text-sm text-gray-600">Happy Customers</div>
-            </div>
-            <div className="space-y-2 col-span-2 md:col-span-1">
-              <div className="text-3xl font-bold text-blue-600">4.9★</div>
-              <div className="text-sm text-gray-600">Average Rating</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

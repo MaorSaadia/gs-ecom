@@ -1,11 +1,16 @@
+// pages/index.tsx
 import React from "react";
 import Footer from "@/components/Fotter";
 import Navbar from "@/components/Navbar";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductInfo } from "@/components/ProductInfo";
+import { products } from "@/data/products"; // Import the products data
 
 export default function Home() {
+  // We'll use the soapshear product data for the home page
+  const productData = products.soapshear;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -19,7 +24,7 @@ export default function Home() {
               {/* Mobile Product Title - Only show on mobile */}
               <div className="lg:hidden">
                 <h1 className="text-3xl font-bold tracking-tight">
-                  SoapShear: Stay Clean
+                  {productData.title}
                 </h1>
               </div>
 
@@ -30,7 +35,10 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <ProductInfo />
+                <ProductInfo
+                  productId={productData.id}
+                  productData={productData}
+                />
               </div>
             </div>
           </section>
@@ -49,7 +57,7 @@ export default function Home() {
 
           {/* Features Section */}
           <section className="py-8 md:py-12">
-            <ProductFeatures />
+            <ProductFeatures productId={productData.id} />
           </section>
 
           {/* Trust Badges */}
@@ -84,8 +92,6 @@ export default function Home() {
             </div>
           </section>
         </div>
-
-        {/* Newsletter Section */}
       </main>
       <Footer />
     </div>
