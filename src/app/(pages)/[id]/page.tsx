@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
 
@@ -19,7 +18,7 @@ interface ProductPageProps {
 export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const productData = products[id];
   return productData
     ? {

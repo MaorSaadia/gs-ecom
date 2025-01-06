@@ -49,7 +49,7 @@ export const products: Record<string, ProductData> = {
         id: "shipping",
         title: "Shipping Information",
         content:
-          "Enjoy free worldwide shipping on all orders. Delivery takes 3-5 business days. Optional express shipping is available at checkout for faster delivery.",
+          "Enjoy free worldwide shipping on all orders. Delivery takes 7-21 business days. Optional express shipping is available at checkout for faster delivery.",
       },
       {
         id: "returns",
