@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-// app/products/[id]/page.tsx
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { products } from "@/data/products";

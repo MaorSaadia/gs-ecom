@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-"use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -23,21 +22,21 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden sm:flex sm:items-center sm:gap-8">
-            <a
+          <div className="hidden sm:flex sm:items-center sm:space-x-4">
+            <Link
               href="/contact"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium relative group"
             >
               Contact
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/tracking"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium relative group"
             >
               Tracking
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -59,19 +58,18 @@ const Navbar = () => {
       {/* Mobile Navigation Menu */}
       <div className={`sm:hidden ${isOpen ? "block" : "hidden"}`}>
         <div className="pt-2 pb-3 space-y-1">
-          <a
+          <Link
             href="/contact"
             className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
           >
             Contact
-          </a>
-          <a
+          </Link>
+          <Link
             href="/tracking"
             className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors duration-200"
           >
             Tracking
-          </a>
-          s{" "}
+          </Link>
         </div>
       </div>
     </nav>

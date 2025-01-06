@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import { Mail } from "lucide-react";
 
 const Footer = () => {
@@ -16,7 +17,6 @@ const Footer = () => {
               alt="SoapShear"
               className="h-10 w-auto"
             />
-
             <div className="space-y-2">
               <a
                 href="mailto:info@soapshear.com"
@@ -33,28 +33,28 @@ const Footer = () => {
             <h3 className="font-bold text-gray-900 mb-4">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/contact"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/shipping"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Shipping Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/returns"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Returns & Exchanges
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -64,36 +64,36 @@ const Footer = () => {
             <h3 className="font-bold text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/faq"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/track"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Track Order
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/privacy"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/terms"
                   className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -105,26 +105,6 @@ const Footer = () => {
             <p className="text-gray-500 text-sm">
               © {currentYear} SoapShear. All rights reserved.
             </p>
-            {/* <div className="flex space-x-6">
-              <a
-                href="/terms"
-                className="text-gray-500 hover:text-gray-900 text-sm"
-              >
-                Terms
-              </a>
-              <a
-                href="/privacy"
-                className="text-gray-500 hover:text-gray-900 text-sm"
-              >
-                Privacy
-              </a>
-              <a
-                href="/cookies"
-                className="text-gray-500 hover:text-gray-900 text-sm"
-              >
-                Cookies
-              </a>
-            </div> */}
           </div>
         </div>
       </div>
