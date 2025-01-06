@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
+
 import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
@@ -9,15 +9,11 @@ import { ProductGallery } from "@/components/ProductGallery";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Fotter";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
 export async function generateMetadata({
   params,
-}: ProductPageProps): Promise<Metadata> {
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const { id } = params;
   const productData = products[id];
   return productData
