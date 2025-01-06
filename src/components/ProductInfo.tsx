@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Star, Truck, Lock, Package } from "lucide-react";
+import {
+  CheckCircle,
+  Star,
+  Truck,
+  Lock,
+  Package,
+  Gift,
+  // Add any other icons you need
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -15,6 +23,18 @@ interface ProductInfoProps {
   productData: ProductData;
 }
 
+// Icon mapping object
+const IconMap: Record<
+  string,
+  React.ComponentType<React.SVGProps<SVGSVGElement>>
+> = {
+  CheckCircle,
+  Truck,
+  Gift,
+
+  // Add any other icons you need to map
+};
+
 export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -22,10 +42,15 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
     return basePrice * qty;
   };
 
-  // const IconComponent = {
-  //   CheckCircle,
-  //   Truck,
-  // };
+  // Helper function to get icon component
+  const getIconComponent = (iconName: string) => {
+    const IconComponent = IconMap[iconName];
+    if (!IconComponent) {
+      console.warn(`Icon "${iconName}" not found, defaulting to CheckCircle`);
+      return CheckCircle;
+    }
+    return IconComponent;
+  };
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-8 mt-10">
@@ -61,7 +86,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
       {/* Features */}
       <div className="space-y-3">
         {productData.features.map((feature, index) => {
-          const Icon = feature.icon === "CheckCircle" ? CheckCircle : Truck;
+          const Icon = getIconComponent(feature.icon);
           return (
             <div key={index} className="flex items-center gap-2">
               <Icon className="w-5 h-5 text-green-500" />

@@ -31,6 +31,7 @@ export type ProductData = {
       label: string;
     }[];
   };
+  gallery: string[]; // Add this new field
 };
 
 export type ProductFeatureDetail = {

@@ -57,7 +57,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               {/* Product Gallery and Info */}
               <div className="order-1 lg:order-none">
                 <div className="sticky top-24">
-                  <ProductGallery />
+                  <ProductGallery productId={productData.id} />
                 </div>
               </div>
               <div>
