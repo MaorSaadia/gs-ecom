@@ -1,5 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { motion } from "framer-motion";
 import { productFeatures } from "@/data/products";
+
+type ProductFeaturesProps = {
+  productId: string;
+};
 
 type FeatureProps = {
   image: string;
@@ -8,41 +14,59 @@ type FeatureProps = {
   isReversed?: boolean;
 };
 
-export interface ProductFeaturesProps {
-  productId: string;
-}
-
 const Feature: React.FC<FeatureProps> = ({
   image,
   title,
   description,
   isReversed,
 }) => (
-  <div
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.6 }}
     className={`
-    flex flex-col gap-8 
-    md:flex-row md:items-center md:gap-12
-    ${isReversed ? "md:flex-row-reverse" : ""}
-  `}
+      flex flex-col gap-8
+      md:flex-row md:items-center md:gap-16
+      ${isReversed ? "md:flex-row-reverse" : ""}
+    `}
   >
-    <div className="w-full md:w-1/2">
-      <div className="relative group">
-        <img
+    <motion.div className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
+      <div className="relative group overflow-hidden rounded-2xl">
+        <motion.img
           src={image}
           alt={title}
-          className="w-full rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
+          className="w-full shadow-xl transition-all duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-    </div>
-    <div className="w-full md:w-1/2 space-y-4">
-      <div className="flex items-center gap-2">
-        {/* <Moon className="w-5 h-5 text-blue-600" /> */}
-        <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
-      </div>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
-    </div>
-  </div>
+    </motion.div>
+
+    <motion.div
+      className="w-full md:w-1/2 space-y-6"
+      variants={{
+        hidden: { opacity: 0, x: isReversed ? -30 : 30 },
+        visible: { opacity: 1, x: 0 },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ delay: 0.3 }}
+    >
+      <motion.h2
+        className="text-3xl font-bold tracking-tight bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent"
+        whileHover={{ x: 10 }}
+      >
+        {title}
+      </motion.h2>
+      <motion.p
+        className="text-gray-600 leading-relaxed text-lg"
+        whileHover={{ x: 10 }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
+  </motion.div>
 );
 
 export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
@@ -55,25 +79,41 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
     productFeatures[productId as keyof typeof productFeatures]?.stats || [];
 
   return (
-    <section className="py-12 md:py-24 px-4 bg-gradient-to-b from-white to-gray-50">
-      {/* Stats Section */}
+    <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-white via-yellow-50/30 to-white cursor-pointer">
       {stats.length > 0 && (
-        <div className="max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-24"
+        >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
+              <motion.div
+                key={index}
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="text-center p-6 rounded-2xl bg-white shadow-lg border border-yellow-100"
+              >
+                <motion.div
+                  className="text-4xl font-bold text-yellow-500"
+                  whileHover={{ scale: 1.1 }}
+                >
                   {stat.value}
+                </motion.div>
+                <div className="text-sm font-medium text-gray-600 mt-2">
+                  {stat.label}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {/* Features Section */}
-      <div className="max-w-3xl mx-auto space-y-12 md:space-y-24">
+      <div className="max-w-4xl mx-auto space-y-8">
         {features.map((feature, index) => (
           <Feature key={index} {...feature} isReversed={index % 2 === 1} />
         ))}

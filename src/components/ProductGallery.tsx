@@ -81,8 +81,6 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         {images.length > 1 && (
           <>
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
               className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg hover:bg-white transition-all"
               onClick={() =>
                 setSelectedImage((prev) =>
@@ -93,8 +91,6 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
               <ChevronLeft className="h-6 w-6" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
               className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-lg hover:bg-white transition-all"
               onClick={() =>
                 setSelectedImage((prev) =>
