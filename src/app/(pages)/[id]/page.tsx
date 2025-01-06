@@ -1,18 +1,20 @@
 import { Metadata } from "next";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
+
 import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Fotter";
+
+interface ProductPageProps {
+  params: {
+    id: string;
+  };
+}
 
 export async function generateMetadata({
   params,
@@ -22,7 +24,7 @@ export async function generateMetadata({
   return productData
     ? {
         title: productData.title,
-        description: `Buy ${productData.title} - High quality product with free shipping`,
+        description: `Buy ${productData.title} - free shipping`,
       }
     : { title: "Product Not Found" };
 }
