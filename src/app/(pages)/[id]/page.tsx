@@ -18,7 +18,9 @@ interface ProductPageProps {
 export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
-  const productData = products[params.id];
+  const { id } = await params;
+
+  const productData = products[id];
 
   if (!productData) {
     return {
@@ -32,8 +34,10 @@ export async function generateMetadata({
   };
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const productData = products[params.id];
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { id } = await params;
+
+  const productData = products[id];
 
   if (!productData) {
     return notFound();
@@ -47,15 +51,8 @@ export default function ProductPage({ params }: ProductPageProps) {
           {/* Product Section */}
           <section className="py-8 md:py-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Mobile Product Title - Only show on mobile */}
-              <div className="lg:hidden">
-                <h1 className="text-3xl font-bold tracking-tight">
-                  {productData.title}
-                </h1>
-              </div>
-
               {/* Product Gallery and Info */}
-              <div className="order-1 lg:order-none">
+              <div className="mt-24 sm:mt-12 -mb-12 sm:mb-0">
                 <div className="sticky top-24">
                   <ProductGallery productId={productData.id} />
                 </div>

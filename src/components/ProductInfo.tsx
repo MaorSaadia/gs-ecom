@@ -138,8 +138,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
 
       {/* Add to Cart Section */}
       <div className="space-y-4">
-        <button className="w-full bg-blue-600 text-white py-4 rounded-lg font-medium transition-all duration-200 hover:bg-blue-700 hover:scale-105 active:scale-95">
-          Add to Cart
+        <button className="w-full bg-yellow-500 text-white py-4 rounded-lg font-medium transition-all duration-200 hover:bg-yellow-600 hover:scale-105 active:scale-95">
+          Buy Now
         </button>
 
         <div className="flex items-center justify-center gap-4 text-sm text-gray-500">

@@ -38,7 +38,7 @@ const Navbar = () => {
 
           {/* Centered Logo */}
           <div className="flex-shrink-0 flex items-center absolute left-1/2 transform -translate-x-1/2">
-            <div className="bg-white p-3 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-125 cursor-pointer">
+            <div className="bg-white p-3 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110 cursor-pointer">
               <img src="/logo-1.png" alt="logo" className="h-8 w-auto" />
             </div>
           </div>
