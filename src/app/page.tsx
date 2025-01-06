@@ -1,15 +1,8 @@
-// pages/index.tsx
-import React from "react";
 import Footer from "@/components/Fotter";
 import Navbar from "@/components/Navbar";
-import { ProductFeatures } from "@/components/ProductFeatures";
-import { ProductGallery } from "@/components/ProductGallery";
-import { ProductInfo } from "@/components/ProductInfo";
-import { products } from "@/data/products"; // Import the products data
 
 export default function Home() {
   // We'll use the soapshear product data for the home page
-  const productData = products.soapshear;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -23,28 +16,28 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Mobile Product Title - Only show on mobile */}
               <div className="lg:hidden">
-                <h1 className="text-3xl font-bold tracking-tight">
+                {/* <h1 className="text-3xl font-bold tracking-tight">
                   {productData.title}
-                </h1>
+                </h1> */}
               </div>
 
               {/* Product Gallery and Info */}
               <div className="order-1 lg:order-none">
-                <div className="sticky top-24">
+                {/* <div className="sticky top-24">
                   <ProductGallery productId={productData.id} />
-                </div>
+                </div> */}
               </div>
-              <div>
+              {/* <div>
                 <ProductInfo
                   productId={productData.id}
                   productData={productData}
                 />
-              </div>
+              </div> */}
             </div>
           </section>
 
           {/* Divider */}
-          <div className="relative py-8 md:py-12">
+          {/* <div className="relative py-8 md:py-12">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-200"></div>
             </div>
@@ -53,15 +46,15 @@ export default function Home() {
                 Why Choose SoapShear
               </span>
             </div>
-          </div>
+          </div> */}
 
           {/* Features Section */}
-          <section className="py-8 md:py-12">
+          {/* <section className="py-8 md:py-12">
             <ProductFeatures productId={productData.id} />
-          </section>
+          </section> */}
 
           {/* Trust Badges */}
-          <section className="py-8 md:py-12 bg-gray-50 rounded-2xl my-8">
+          {/* <section className="py-8 md:py-12 bg-gray-50 rounded-2xl my-8">
             <div className="max-w-5xl mx-auto px-4">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div className="space-y-2">
@@ -90,7 +83,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
       </main>
       <Footer />

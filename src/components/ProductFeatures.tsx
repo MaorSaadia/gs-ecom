@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import { Moon } from "lucide-react";
 import { productFeatures } from "@/data/products";
 
 type FeatureProps = {
@@ -39,13 +37,10 @@ const Feature: React.FC<FeatureProps> = ({
     </div>
     <div className="w-full md:w-1/2 space-y-4">
       <div className="flex items-center gap-2">
-        <Moon className="w-5 h-5 text-blue-600" />
+        {/* <Moon className="w-5 h-5 text-blue-600" /> */}
         <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
       </div>
       <p className="text-gray-600 leading-relaxed">{description}</p>
-      <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors duration-200">
-        Learn more →
-      </button>
     </div>
   </div>
 );

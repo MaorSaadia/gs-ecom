@@ -86,6 +86,37 @@ export default function ProductPage({ params }: ProductPageProps) {
             <ProductFeatures productId={productData.id} />
           </section>
         </div>
+        {/* Trust Badges */}
+        <section className="py-8 md:py-12 bg-gray-50 rounded-2xl my-8">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="space-y-2">
+                <div className="text-xl font-semibold text-gray-900">
+                  Fast Shipping
+                </div>
+                <p className="text-sm text-gray-600">2-3 business days</p>
+              </div>
+              <div className="space-y-2">
+                <div className="text-xl font-semibold text-gray-900">
+                  Free Returns
+                </div>
+                <p className="text-sm text-gray-600">30-day guarantee</p>
+              </div>
+              <div className="space-y-2">
+                <div className="text-xl font-semibold text-gray-900">
+                  Secure Payment
+                </div>
+                <p className="text-sm text-gray-600">100% protected</p>
+              </div>
+              <div className="space-y-2">
+                <div className="text-xl font-semibold text-gray-900">
+                  24/7 Support
+                </div>
+                <p className="text-sm text-gray-600">Always here to help</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
