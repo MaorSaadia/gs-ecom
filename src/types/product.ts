@@ -4,7 +4,7 @@ export type ProductReview = {
 };
 
 export type ProductFeature = {
-  icon: "CheckCircle" | "Truck";
+  icon: string;
   text: string;
 };
 

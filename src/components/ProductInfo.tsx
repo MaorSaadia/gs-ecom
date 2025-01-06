@@ -22,10 +22,10 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
     return basePrice * qty;
   };
 
-  const IconComponent = {
-    CheckCircle,
-    Truck,
-  };
+  // const IconComponent = {
+  //   CheckCircle,
+  //   Truck,
+  // };
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-8 mt-10">
@@ -61,7 +61,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
       {/* Features */}
       <div className="space-y-3">
         {productData.features.map((feature, index) => {
-          const Icon = IconComponent[feature.icon];
+          const Icon = feature.icon === "CheckCircle" ? CheckCircle : Truck;
           return (
             <div key={index} className="flex items-center gap-2">
               <Icon className="w-5 h-5 text-green-500" />

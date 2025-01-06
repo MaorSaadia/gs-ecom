@@ -57,6 +57,69 @@ export const products: Record<string, ProductData> = {
       stats: undefined,
     },
   },
+
+  ticTacToeGame: {
+    id: "ticTacToeGame",
+    title: "Tic-Tac-Toe Puzzle Game",
+    badge: "Perfect Gift",
+    price: 14.99,
+    originalPrice: 19.99,
+    maxQuantity: 20,
+    review: {
+      rating: 4.8,
+      count: 42,
+    },
+    features: [
+      {
+        icon: "Gift",
+        text: "Perfect Gift for Kids and Adults",
+      },
+      {
+        icon: "LightBulb",
+        text: "Educational & Engaging",
+      },
+      {
+        icon: "Airplane",
+        text: "Compact & Travel-Friendly",
+      },
+    ],
+    accordionItems: [
+      {
+        id: "features",
+        title: "Why Choose This Game?",
+        content:
+          "Develop problem-solving skills, enhance logic, and enjoy hours of fun with this portable Tic-Tac-Toe game. Its ergonomic design ensures comfort, while the durable build guarantees lasting use.",
+      },
+      {
+        id: "gift",
+        title: "Perfect Gift for Any Occasion",
+        content:
+          "An excellent holiday or birthday gift for kids aged 3 and older. Whether at home or on the go, this game offers fun, education, and engagement for the whole family.",
+      },
+      {
+        id: "specs",
+        title: "Product Specifications",
+        content:
+          "Material: ABS\nColor Options: Yellow, Orange\nNet Weight: 131g\nSize: 90mm x 90mm x 28mm\nPackage Includes: 1x Portable Tic-Tac-Toe Puzzle Game",
+      },
+      {
+        id: "shipping",
+        title: "Shipping Information",
+        content:
+          "Enjoy free worldwide shipping on all orders. Delivery takes 3-5 business days. Optional express shipping is available at checkout for faster delivery.",
+      },
+      {
+        id: "returns",
+        title: "Our Return Policy",
+        content:
+          "We offer a 30-day money-back guarantee. If you're not satisfied, return the product in its original condition for a full refund.",
+      },
+    ],
+    featuresDetail: {
+      mainFeatures: [],
+      stats: undefined,
+    },
+  },
   // Add more products here following the same structure
 };
 
@@ -97,5 +160,40 @@ export const productFeatures = {
       },
     ],
   },
-  // Add more products here as needed
+  ticTacToeGame: {
+    mainFeatures: [
+      {
+        image: "/tic-tac-toe-feature-1.jpeg",
+        title: "Fun and Educational for All Ages",
+        description:
+          "Engage your kids and yourself with this simple yet challenging game. It promotes problem-solving and logic skills while providing hours of entertainment.",
+      },
+      {
+        image: "/tic-tac-toe-feature-2.jpeg",
+        title: "Portable and Travel-Friendly",
+        description:
+          "Take it anywhere! The compact and lightweight design makes it ideal for family trips, vacations, or just playing on the go.",
+      },
+      {
+        image: "/tic-tac-toe-feature-3.jpeg",
+        title: "Built to Last",
+        description:
+          "Crafted from durable ABS material, this game is designed to withstand daily use by kids and adults alike, ensuring long-term fun.",
+      },
+    ],
+    stats: [
+      {
+        value: "4 Modes",
+        label: "Game Options",
+      },
+      {
+        value: "131g",
+        label: "Lightweight Design",
+      },
+      {
+        value: "4.8★",
+        label: "Average Rating",
+      },
+    ],
+  },
 };
