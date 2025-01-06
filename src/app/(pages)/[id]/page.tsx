@@ -1,7 +1,7 @@
 import { Metadata } from "next";
+
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
-
 import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
@@ -28,8 +28,12 @@ export async function generateMetadata({
     : { title: "Product Not Found" };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = await params;
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = params;
   const productData = products[id];
 
   if (!productData) return notFound();
