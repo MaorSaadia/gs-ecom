@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
 
-import { products } from "@/data/products";
+import { products } from "@/data/products"; // Import your product data
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
@@ -16,6 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = params;
   const productData = products[id];
+
   return productData
     ? {
         title: productData.title,
@@ -30,9 +31,13 @@ export default async function ProductPage({
   params: { id: string };
 }) {
   const { id } = params;
-  const productData = products[id];
+  const metadata = await generateMetadata({ params });
 
-  if (!productData) return notFound();
+  if (metadata.title === "Product Not Found") {
+    return notFound();
+  }
+
+  const productData = products[id];
 
   const badges = [
     { icon: Truck, title: "Fast Shipping", desc: "7-21 business days" },
