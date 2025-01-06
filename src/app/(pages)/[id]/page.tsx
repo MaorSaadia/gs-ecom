@@ -12,11 +12,7 @@ import { ProductGallery } from "@/components/ProductGallery";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Fotter";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> {
   const { id } = await params;
   const productData = products[id];
 
@@ -28,11 +24,7 @@ export async function generateMetadata({
     : { title: "Product Not Found" };
 }
 
-export default async function ProductPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function ProductPage({ params }) {
   const { id } = await params;
   const metadata = await generateMetadata({ params });
 
