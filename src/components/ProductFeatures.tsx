@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Moon } from "lucide-react";
+import { productFeatures } from "@/data/products";
 
 type FeatureProps = {
   image: string;
@@ -52,23 +53,31 @@ const Feature: React.FC<FeatureProps> = ({
 export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
   productId,
 }) => {
-  const features = [
-    {
-      image: "/product-detail-1.jpeg",
-      title: "Transform Soap Into Smooth, Usable Powder Effortlessly",
-      description:
-        "With SoapShear, keep bar soap fresh and dry. Its precise grating mechanism transforms messy bars into fine powder with a simple press, making your daily routine cleaner and more efficient.",
-    },
-    {
-      image: "/product-detail-2.jpeg",
-      title: "Make your soap last longer",
-      description:
-        "SoapShear grinds just the right amount of soap, helping your bars last longer and saving you money. The precision control ensures zero waste and maximum efficiency in your soap usage.",
-    },
-  ];
+  const features =
+    productFeatures[productId as keyof typeof productFeatures]?.mainFeatures ||
+    [];
+  const stats =
+    productFeatures[productId as keyof typeof productFeatures]?.stats || [];
 
   return (
     <section className="py-12 md:py-24 px-4 bg-gradient-to-b from-white to-gray-50">
+      {/* Stats Section */}
+      {stats.length > 0 && (
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl font-bold text-blue-600">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Features Section */}
       <div className="max-w-3xl mx-auto space-y-12 md:space-y-24">
         {features.map((feature, index) => (
           <Feature key={index} {...feature} isReversed={index % 2 === 1} />

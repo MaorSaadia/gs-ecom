@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
-import { products } from "@/data/products";
-import { notFound } from "next/navigation";
+import { ProductGallery } from "@/components/ProductGallery";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Fotter";
-import { ProductGallery } from "@/components/ProductGallery";
 
 interface ProductPageProps {
   params: {
