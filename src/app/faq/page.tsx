@@ -13,79 +13,79 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: "What makes your product unique?",
+    question: "What is the shipping process like?",
     answer:
-      "Our product stands out for its premium quality, innovative design, and exceptional value. We've carefully crafted each detail to ensure it meets the highest standards of performance and durability.",
+      "Once you place an order, our fulfillment team processes it, and the product is shipped directly to your address. We work with trusted suppliers to ensure prompt delivery and high-quality products.",
   },
   {
-    question: "How do I know which size/option to choose?",
+    question: "How long does shipping take?",
     answer:
-      "We provide detailed size guides and product specifications in our product description. If you're still unsure, feel free to contact our customer support team for personalized assistance.",
+      "Shipping times depend on your location and the product's availability. Typically, orders are delivered within 7-21 business days.",
   },
   {
-    question: "What are your shipping rates?",
+    question: "Will I receive a tracking number for my order?",
     answer:
-      "We offer free standard shipping on all orders. Express shipping options are available at checkout for an additional fee. Shipping times vary by location.",
+      "Yes, once your order has been shipped, you will receive an email with your tracking number so you can monitor the delivery progress of your order.",
   },
   {
-    question: "Do you ship internationally?",
+    question: "Can I return or exchange products?",
     answer:
-      "Yes, we ship worldwide! International shipping times typically range from 10-20 business days depending on your location. Please note that customs fees may apply.",
+      "We offer returns for damaged or incorrect items. Please contact our customer support within 14 days of receiving the product, send us the image of the damaged or incorrect itmes, and we'll guide you through the process. In certain cases, we may allow you to keep the item and provide a 50% refund or store credit for the full amount of your order.",
   },
   {
-    question: "What is your return policy?",
+    question: "What happens if my items are lost or damaged?",
     answer:
-      "We offer a 30-day return policy for unused items in original packaging. For defective items, we provide free returns and exchanges. Contact our support team to initiate a return.",
+      "For damaged items, we will process a full refund or provide a free replacement if the item becomes defective within 30 days of delivery. For lost items, if the order is lost in transit and cannot be recovered within 30 days of placing the order, we will either reship the item or offer a full refund.",
   },
   {
-    question: "How do I track my order?",
+    question: "How long does it take to process a refund?",
     answer:
-      "Once your order ships, you'll receive a confirmation email with a tracking number. You can use this number to monitor your shipment's progress on our website.",
+      "Refunds are typically processed within 5-7 business days after we receive the returned item. If there are any issues with the refund, please contact us to confirm whether it was properly initiated on our end. If the refund was processed correctly, you may need to check with your bank for further details.",
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment methods. All transactions are encrypted for your security.",
+      "We accept all major credit/debit cards and PayPal, ensuring that your payment is secure and encrypted.",
   },
   {
-    question: "Is my payment information secure?",
+    question: "Are there any hidden fees?",
     answer:
-      "Yes, we use industry-standard SSL encryption to protect your payment information. We never store your credit card details on our servers.",
+      "No, the price you see on the product page is the final price you pay at checkout. Any additional customs fees or taxes, where applicable, are the responsibility of the buyer.",
   },
   {
-    question: "How can I contact customer service?",
+    question: "Can I cancel my order?",
     answer:
-      "Our customer service team is available via email at support@gs-ecom.com. We aim to respond to all inquiries within 24 hours during business days.",
+      "You can cancel your order within 24 hours after placing it. However, if the item has already been shipped, we won't be able to cancel it.",
   },
   {
-    question: "Do you offer a warranty?",
+    question: "What if my order hasn't arrived?",
     answer:
-      "Yes, all our products come with a standard manufacturer's warranty. The warranty period varies by product - please check the product description for specific details.",
+      "If your order hasn't arrived within the expected delivery window, Or if there's a delay, contact our support team for checking your order.",
   },
   {
-    question: "How do I care for my product?",
+    question: "Are your products authentic?",
     answer:
-      "Each product comes with detailed care instructions. Following these guidelines will help maintain the quality and extend the life of your purchase.",
+      "Yes, we work closely with verified suppliers to ensure that all products meet our quality standards before being shipped to our customers.",
   },
   {
-    question: "Do you offer discounts for bulk orders?",
+    question: "Is shopping on your website secure?",
     answer:
-      "Yes, we offer special pricing for bulk orders. Please contact our sales team at sales@gs-ecom.com for more information about bulk purchasing options.",
+      "Yes, we prioritize the security of your personal and payment information. All transactions are encrypted, and we comply with industry standards to keep your data safe.",
   },
   {
-    question: "What if my order arrives damaged?",
+    question: "How do I contact customer support?",
     answer:
-      "If your order arrives damaged, please take photos and contact our support team immediately. We'll arrange for a replacement or refund at no additional cost to you.",
+      "You can reach our customer support team through the Customer Support page or by emailing support@[yourwebsite].com. We aim to respond to all inquiries within 24 hours.",
   },
   {
-    question: "Can I modify or cancel my order?",
+    question: "Do you offer discounts or promotions?",
     answer:
-      "Orders can be modified or canceled within 24 hours of placement. After this window, we cannot guarantee changes as items may have already been processed for shipping.",
+      "Yes, we offer discounts and promotions from time to time. Be sure to stay updated on the latest deals.",
   },
   {
-    question: "Do you have a loyalty program?",
+    question: "Do you ship internationally?",
     answer:
-      "Yes! Our loyalty program rewards customers with points for purchases, reviews, and referrals. These points can be redeemed for discounts on future purchases.",
+      "Yes, we offer international shipping to most countries. Delivery times may vary based on your location.",
   },
 ];
 

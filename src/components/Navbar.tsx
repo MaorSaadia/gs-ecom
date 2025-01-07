@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-start">
             <Link
               href="/contact"
-              className="text-black hover:text-gray-800 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Contact
             </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-end">
             <Link
               href="/tracking"
-              className="text-black hover:text-gray-800 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Tracking
             </Link>
