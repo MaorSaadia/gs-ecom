@@ -9,19 +9,25 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 fixed w-full top-0 z-50">
+    <nav className="bg-gradient-to-r from-slate-50 via-yellow-50 to-slate-50 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Mobile Menu Button */}
           <div className="sm:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-full bg-white/20 text-black hover:bg-white/30 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
             >
               {isOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
+                <X
+                  className="h-6 w-6 hover:bg-gray-200 rounded-lg"
+                  aria-hidden="true"
+                />
               ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
+                <Menu
+                  className="h-6 w-6 hover:bg-gray-200 rounded-lg"
+                  aria-hidden="true"
+                />
               )}
             </button>
           </div>
@@ -30,7 +36,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-start">
             <Link
               href="/contact"
-              className="text-white hover:text-yellow-100 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-gray-800 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Contact
             </Link>
@@ -47,7 +53,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-end">
             <Link
               href="/tracking"
-              className="text-white hover:text-yellow-100 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-gray-800 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Tracking
             </Link>
@@ -64,14 +70,14 @@ const Navbar = () => {
         <div className="px-4 pt-2 pb-3 space-y-2 bg-white/10 backdrop-blur-md">
           <Link
             href="/contact"
-            className="block px-4 py-3 text-base font-medium text-white hover:bg-white/20 rounded-lg transition-colors duration-200"
+            className="block px-4 py-3 text-base font-medium text-black hover:bg-slate-100 rounded-lg transition-colors duration-200"
             onClick={() => setIsOpen(false)}
           >
             Contact
           </Link>
           <Link
             href="/tracking"
-            className="block px-4 py-3 text-base font-medium text-white hover:bg-white/20 rounded-lg transition-colors duration-200"
+            className="block px-4 py-3 text-base font-medium text-black hover:bg-slate-100 rounded-lg transition-colors duration-200"
             onClick={() => setIsOpen(false)}
           >
             Tracking

@@ -9,8 +9,6 @@ import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Fotter";
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { id } = await params;
@@ -47,7 +45,6 @@ export default async function ProductPage({ params }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-yellow-50/10 to-white">
-      <Navbar />
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="py-8 md:py-12">
@@ -101,7 +98,6 @@ export default async function ProductPage({ params }) {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

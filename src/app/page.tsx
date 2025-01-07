@@ -1,12 +1,8 @@
-import Footer from "@/components/Fotter";
-import Navbar from "@/components/Navbar";
-
 export default function Home() {
   // We'll use the soapshear product data for the home page
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       {/* Hero Section */}
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +79,6 @@ export default function Home() {
           </section> */}
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
