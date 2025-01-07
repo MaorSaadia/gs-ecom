@@ -2,8 +2,8 @@ import React from "react";
 import { NextResponse } from "next/server";
 import { render } from "@react-email/render";
 
-import CustomerService from "@/emails/CustomerService";
 import { mailOptions, transporter } from "@/app/config/nodemailer";
+import CustomerService from "@/emails/CustomerService";
 
 interface SupportTicketData {
   name: string;
