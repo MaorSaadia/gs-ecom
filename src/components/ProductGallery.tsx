@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { products } from "@/data/products";
 
@@ -67,15 +67,6 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
             onClick={() => setIsZoomed(!isZoomed)}
           />
         </AnimatePresence>
-
-        {/* Zoom indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="absolute top-4 right-4 bg-black/50 p-2 rounded-full backdrop-blur-sm"
-        >
-          <ZoomIn className="h-5 w-5 text-white" />
-        </motion.div>
 
         {/* Navigation arrows for main image */}
         {images.length > 1 && (

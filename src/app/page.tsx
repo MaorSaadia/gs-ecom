@@ -19,7 +19,6 @@ export default function Home() {
                   {productData.title}
                 </h1> */}
               </div>
-
               {/* Product Gallery and Info */}
               <div className="order-1 lg:order-none">
                 {/* <div className="sticky top-24">
@@ -34,7 +33,6 @@ export default function Home() {
               </div> */}
             </div>
           </section>
-
           {/* Divider */}
           {/* <div className="relative py-8 md:py-12">
             <div className="absolute inset-0 flex items-center">

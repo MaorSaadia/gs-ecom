@@ -73,7 +73,7 @@ const Footer = () => {
               Customer Service
             </h3>
             <ul className="space-y-2">
-              {["Contact Us", "Shipping Policy", "Returns & Exchanges"].map(
+              {["Contact Us", "Shipping Policy", "Refund Policy"].map(
                 (item, index) => (
                   <motion.li
                     key={index}
