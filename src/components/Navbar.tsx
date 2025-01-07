@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Desktop Navigation - Left Side */}
           <div className="hidden sm:flex flex-1 justify-start">
             <Link
-              href="/contact"
+              href="/contact-us"
               className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Contact
@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* Desktop Navigation - Right Side */}
           <div className="hidden sm:flex flex-1 justify-end">
             <Link
-              href="/tracking"
+              href="/track-order"
               className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Tracking
@@ -69,14 +69,14 @@ const Navbar = () => {
       >
         <div className="px-4 pt-2 pb-3 space-y-2 bg-white/10 backdrop-blur-md">
           <Link
-            href="/contact"
+            href="/contact-us"
             className="block px-4 py-3 text-base font-medium text-black hover:bg-slate-100 rounded-lg transition-colors duration-200"
             onClick={() => setIsOpen(false)}
           >
             Contact
           </Link>
           <Link
-            href="/tracking"
+            href="/track-order"
             className="block px-4 py-3 text-base font-medium text-black hover:bg-slate-100 rounded-lg transition-colors duration-200"
             onClick={() => setIsOpen(false)}
           >
