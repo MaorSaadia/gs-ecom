@@ -183,16 +183,12 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`w-full py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all ${
-              productData.payLink.buttonColor
-                ? `bg-[${productData.payLink.buttonColor}] text-black`
-                : "bg-yellow-400 text-black"
-            }`}
+            className={`w-full py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all ${"bg-yellow-400 text-black"}`}
             onClick={handlePayNowClick}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            {productData.payLink.buttonText || `Buy ${quantity} Now`}
+            Buy Now
           </motion.button>
 
           <motion.div
