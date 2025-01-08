@@ -98,15 +98,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
       className="max-w-2xl mx-auto p-6 space-y-8 mt-2 md:mt-10 bg-white rounded-2xl shadow-lg"
     >
       {/* Title and Badge */}
-      <motion.div variants={itemVariants} className="space-y-2">
-        {productData.badge && (
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="inline-block bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1.5 rounded-full"
-          >
-            {productData.badge}
-          </motion.div>
-        )}
+      <motion.div variants={itemVariants} className="space-y-2 mt-2">
         <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
           {productData.title}
         </h1>
@@ -138,6 +130,23 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
               </motion.span>
             </motion.div>
           )}
+        </motion.div>
+
+        {/* Features */}
+        <motion.div variants={itemVariants} className="space-y-3">
+          {productData.features.map((feature, index) => {
+            const Icon = getIconComponent(feature.icon);
+            return (
+              <motion.div
+                key={index}
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-yellow-50 transition-colors"
+              >
+                <Icon className="w-5 h-5 text-yellow-500" />
+                <span className="text-gray-700">{feature.text}</span>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Quantity Selector */}
@@ -207,23 +216,6 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
           </motion.div>
         </motion.div>
       )}
-
-      {/* Features */}
-      <motion.div variants={itemVariants} className="space-y-3">
-        {productData.features.map((feature, index) => {
-          const Icon = getIconComponent(feature.icon);
-          return (
-            <motion.div
-              key={index}
-              whileHover={{ x: 10 }}
-              className="flex items-center gap-3 p-3 rounded-lg hover:bg-yellow-50 transition-colors"
-            >
-              <Icon className="w-5 h-5 text-yellow-500" />
-              <span className="text-gray-700">{feature.text}</span>
-            </motion.div>
-          );
-        })}
-      </motion.div>
 
       {/* Accordion */}
       <motion.div
