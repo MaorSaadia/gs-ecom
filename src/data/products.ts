@@ -12,6 +12,30 @@ export const products: Record<string, ProductData> = {
       rating: 4.8,
       count: 42,
     },
+    payLink: {
+      links: [
+        {
+          quantity: 1,
+          url: "https://shop.mishbaby.com//_paylink/AZRFCRhT",
+        },
+        {
+          quantity: 2,
+          url: "https://shop.mishbaby.com//_paylink/AZRFJayp",
+        },
+        {
+          quantity: 3,
+          url: "https://shop.mishbaby.com//_paylink/AZRFLqKQ",
+        },
+        {
+          quantity: 4,
+          url: "https://shop.mishbaby.com//_paylink/AZRFLyUg",
+        },
+      ],
+      buttonColor: "#FFC200",
+      buttonText: "Buy Now", // Optional: will show "Buy {quantity} Now" if not provided
+      maxQuantity: 4, // Optional: override product maxQuantity
+    },
+
     features: [
       {
         icon: "Gift",
@@ -81,6 +105,30 @@ export const products: Record<string, ProductData> = {
       rating: 4.6,
       count: 28,
     },
+    payLink: {
+      links: [
+        {
+          quantity: 1,
+          url: "https://shop.mishbaby.com//_paylink/link-for-1-item",
+        },
+        {
+          quantity: 2,
+          url: "https://shop.mishbaby.com//_paylink/link-for-2-items",
+        },
+        {
+          quantity: 3,
+          url: "https://shop.mishbaby.com//_paylink/link-for-3-items",
+        },
+        {
+          quantity: 4,
+          url: "https://shop.mishbaby.com//_paylink/link-for-4-items",
+        },
+      ],
+      buttonColor: "#FFC200",
+      buttonText: "Buy Now", // Optional: will show "Buy {quantity} Now" if not provided
+      maxQuantity: 4, // Optional: override product maxQuantity
+    },
+
     features: [
       {
         icon: "Sparkles",

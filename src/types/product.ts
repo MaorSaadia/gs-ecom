@@ -1,3 +1,4 @@
+// types/product.ts
 export type ProductReview = {
   rating: number;
   count: number;
@@ -12,6 +13,18 @@ export type ProductAccordionItem = {
   id: string;
   title: string;
   content: string;
+};
+
+export type PayLinkItem = {
+  quantity: number;
+  url: string;
+};
+
+export type PayLinkConfig = {
+  links: PayLinkItem[];
+  buttonColor?: string;
+  buttonText?: string;
+  maxQuantity?: number;
 };
 
 export type ProductData = {
@@ -31,7 +44,8 @@ export type ProductData = {
       label: string;
     }[];
   };
-  gallery: string[]; // Add this new field
+  gallery: string[];
+  payLink?: PayLinkConfig;
 };
 
 export type ProductFeatureDetail = {
