@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const paymentMethods = [
@@ -47,7 +46,7 @@ const Footer = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {/* Company Info */}
-          <motion.div variants={itemVariants} className="space-y-4">
+          {/* <motion.div variants={itemVariants} className="space-y-4">
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -65,7 +64,7 @@ const Footer = () => {
                 info@gmail.com
               </motion.a>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Customer Service */}
           <motion.div variants={itemVariants}>

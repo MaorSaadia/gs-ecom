@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 const ShippingPolicy = () => {
   const shippingTimes = [
@@ -145,12 +145,9 @@ const ShippingPolicy = () => {
           <p>
             If you have any questions about our shipping policy, please contact
             us at:{" "}
-            <a
-              href="mailto:support@gs-ecom.com"
-              className="text-blue-600 hover:underline"
-            >
-              gs-ecom@gmail.com
-            </a>
+            <Link href="/contact-us" className="text-blue-600 hover:underline">
+              Contact our support team
+            </Link>
           </p>
         </section>
       </div>

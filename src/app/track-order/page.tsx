@@ -36,7 +36,7 @@ const EnhancedTrackingPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-white shadow-2xl border-0">
-          <CardHeader className="text-center py-8 bg-gradient-to-r from-gray-100 to-gray-50 rounded-t-xl">
+          <CardHeader className="text-center py-8 bg-gradient-to-r from-slate-50 via-yellow-50 to-slate-50 rounded-t-xl">
             <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg transform -translate-y-2">
               <Box className="w-10 h-10 text-gray-500" />
             </div>
@@ -78,7 +78,7 @@ const EnhancedTrackingPage = () => {
 
               <Button
                 type="submit"
-                className="w-full h-16 bg-gray-700 hover:bg-gray-900 text-white rounded-xl
+                className="w-full h-16 bg-gray-900 hover:bg-gray-800 text-white rounded-xl
                   flex items-center justify-center space-x-3 text-lg font-semibold
                   transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
               >

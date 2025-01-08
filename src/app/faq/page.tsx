@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -97,14 +98,10 @@ const FAQPage: React.FC = () => {
       </h1>
       <div className="max-w-3xl mx-auto mb-8 text-center text-gray-600">
         <p>
-          Can&apos;t find what you&apos;re looking for? Contact our support team
-          at{" "}
-          <a
-            href="mailto:support@gs-ecom.com"
-            className="text-blue-600 hover:underline"
-          >
-            gs-ecom@gmail.com
-          </a>
+          Can&apos;t find what you&apos;re looking for?{" "}
+          <Link href="/contact-us" className="text-blue-600 hover:underline">
+            Contact our support team
+          </Link>
         </p>
       </div>
       <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">

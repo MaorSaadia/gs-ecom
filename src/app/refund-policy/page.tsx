@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 const RefundPolicy = () => {
   return (
@@ -8,11 +8,10 @@ const RefundPolicy = () => {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Product Issues</h2>
         <p className="mb-4 text-gray-700">
-          Upon receiving your order, please inspect it immediately. Contact us
-          at
-          <span className="text-blue-600"> support@gs-ecom.com </span>
-          if you notice any defects or damages, or if you received an incorrect
-          item.
+          Upon receiving your order, please inspect it immediately {""}
+          <Link href="/contact-us" className="text-blue-600 hover:underline">
+            Contact us.
+          </Link>
         </p>
       </section>
 
@@ -40,7 +39,7 @@ const RefundPolicy = () => {
         <div className="space-y-4 text-gray-700">
           <p>To initiate a return:</p>
           <ol className="list-decimal pl-6 space-y-2">
-            <li>Email us at gs-ecom@gmail.com with your order details</li>
+            <li>Email us at gsecom25@gmail.com with your order details</li>
             <li>Wait for our team to review your return request</li>
             <li>
               If approved, you&apos;ll receive a return shipping label and
@@ -88,7 +87,10 @@ const RefundPolicy = () => {
       <footer className="text-sm text-gray-600 mt-8">
         <p>
           For any questions about our refund policy, please contact our support
-          team at support@gs-ecom.com
+          team{" "}
+          <Link href="/contact-us" className="text-blue-600 hover:underline">
+            Contact our support team
+          </Link>
         </p>
       </footer>
     </div>
