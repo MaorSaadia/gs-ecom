@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
+import { Suspense } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
 
 import { products } from "@/data/products";
+import { getProductReviews } from "@/lib/getProductReviews";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
-import { getProductReviews } from "@/lib/getProductReviews";
 import ProductReviews from "@/components/ProductReviews";
-import { Suspense } from "react";
 import Loading from "@/components/Loading";
 
 export async function generateMetadata({ params }): Promise<Metadata> {

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
-import { Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Star, X } from "lucide-react";
 
 type ReviewData = {
   Country: string;
@@ -13,6 +13,55 @@ type ReviewData = {
   Review?: string;
   "Translation Review"?: string;
   "Date of Published": string;
+};
+
+type ImageModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  image: string;
+};
+
+const ImageModal = ({ isOpen, onClose, image }: ImageModalProps) => {
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-4xl w-full h-full flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-white hover:text-gray-200 z-10"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        <img
+          src={image}
+          alt="Review"
+          className="max-h-[90vh] max-w-[90vw] object-contain"
+        />
+      </div>
+    </div>
+  );
 };
 
 const ReviewStats = ({ reviews }: { reviews: ReviewData[] }) => {
@@ -75,20 +124,15 @@ const ReviewStats = ({ reviews }: { reviews: ReviewData[] }) => {
 };
 
 const ReviewCard = ({ review }: { review: ReviewData }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const rating = Number(review.Rating) / 20;
   const images = review.Images?.split(",").filter(Boolean) || [];
 
-  // Improved date parsing
   const formatDate = (dateString: string) => {
-    // Try parsing different date formats
     const date = new Date(dateString);
-
-    // Check if the date is valid
     if (isNaN(date.getTime())) {
-      // Try parsing DD/MM/YYYY format
       const [day, month, year] = dateString.split("/");
       const reformattedDate = new Date(`${year}-${month}-${day}`);
-
       if (!isNaN(reformattedDate.getTime())) {
         return reformattedDate.toLocaleDateString("en-US", {
           year: "numeric",
@@ -96,10 +140,8 @@ const ReviewCard = ({ review }: { review: ReviewData }) => {
           day: "2-digit",
         });
       }
-
       return dateString;
     }
-
     return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
@@ -108,53 +150,70 @@ const ReviewCard = ({ review }: { review: ReviewData }) => {
   };
 
   const formattedDate = formatDate(review["Date of Published"]);
+
   return (
-    <div className="border-b border-gray-200 py-6">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-          {review.Name[0]}
-        </div>
-        <div>
-          <div className="font-medium">
-            {review.Name === "AliExpress Shopper" ? "Anonymous" : review.Name}
+    <>
+      <div className="border-b border-gray-200 py-6">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+            {review.Name[0]}
           </div>
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star
-                  key={star}
-                  className={`w-4 h-4 ${
-                    star <= rating
-                      ? "fill-yellow-400 text-yellow-400"
-                      : "text-gray-200"
-                  }`}
-                />
-              ))}
+          <div>
+            <div className="font-medium">
+              {review.Name === "AliExpress Shopper" ? "Anonymous" : review.Name}
             </div>
-            <span className="text-sm text-gray-500">{formattedDate}</span>
+            <div className="flex items-center gap-2">
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className={`w-4 h-4 ${
+                      star <= rating
+                        ? "fill-yellow-400 text-yellow-400"
+                        : "text-gray-200"
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="text-sm text-gray-500">{formattedDate}</span>
+            </div>
           </div>
         </div>
+
+        {review.Review && (
+          <p className="text-gray-700 mb-4">
+            {review["Translation Review"] || review.Review}
+          </p>
+        )}
+
+        {images.length > 0 && (
+          <div className="flex gap-2 flex-wrap">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedImage(image.trim())}
+                className="relative group"
+              >
+                <img
+                  src={image.trim()}
+                  alt={`Review ${index + 1}`}
+                  className="w-20 h-20 object-cover rounded-md transition-transform group-hover:opacity-90"
+                />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 rounded-md transition-opacity" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
-      {review.Review && (
-        <p className="text-gray-700 mb-4">
-          {review["Translation Review"] || review.Review}
-        </p>
+      {selectedImage && (
+        <ImageModal
+          isOpen={!!selectedImage}
+          onClose={() => setSelectedImage(null)}
+          image={selectedImage}
+        />
       )}
-
-      {images.length > 0 && (
-        <div className="flex gap-2 flex-wrap">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image.trim()}
-              alt={`Review ${index + 1}`}
-              className="w-20 h-20 object-cover rounded-md"
-            />
-          ))}
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
