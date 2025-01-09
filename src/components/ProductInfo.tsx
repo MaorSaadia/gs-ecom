@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { CheckCircle, Truck, Lock, Package, Gift } from "lucide-react";
+import { CheckCircle, Truck, Lock, Package, Gift, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 import {
@@ -15,6 +15,8 @@ import { ProductData, PayLinkItem } from "../types/product";
 interface ProductInfoProps {
   productId: string;
   productData: ProductData;
+  averageRating?: number;
+  totalReviews?: number;
 }
 
 const IconMap: Record<
@@ -26,7 +28,11 @@ const IconMap: Record<
   Gift,
 };
 
-export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
+export const ProductInfo: React.FC<ProductInfoProps> = ({
+  productData,
+  averageRating = 0,
+  totalReviews = 0,
+}) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [isHovered, setIsHovered] = useState(false);
   const [currentPayLink, setCurrentPayLink] = useState<string | null>(null);
@@ -90,6 +96,13 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const scrollToReviews = () => {
+    const reviewsSection = document.getElementById("product-reviews");
+    if (reviewsSection) {
+      reviewsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.div
       initial="hidden"
@@ -102,6 +115,26 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ productData }) => {
         <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
           {productData.title}
         </h1>
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={scrollToReviews}
+        >
+          <div className="flex gap-1">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                className={`w-4 h-4 ${
+                  star <= averageRating
+                    ? "fill-yellow-400 text-yellow-400"
+                    : "text-gray-200"
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-sm font-medium text-gray-600">
+            {averageRating.toFixed(2)} ({totalReviews} reviews)
+          </span>
+        </div>
       </motion.div>
 
       {/* Price Section */}

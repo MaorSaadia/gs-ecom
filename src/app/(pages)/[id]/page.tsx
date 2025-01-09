@@ -37,6 +37,11 @@ export default async function ProductPage({ params }) {
   const productData = products[id];
 
   const reviews = await getProductReviews(id);
+  // Calculate average rating
+  const averageRating =
+    reviews.reduce((acc, review) => acc + Number(review.Rating) / 20, 0) /
+    reviews.length;
+  const totalReviews = reviews.length;
 
   const badges = [
     { icon: Truck, title: "Fast Shipping", desc: "7-21 business days" },
@@ -64,6 +69,8 @@ export default async function ProductPage({ params }) {
                 <ProductInfo
                   productId={productData.id}
                   productData={productData}
+                  averageRating={averageRating}
+                  totalReviews={totalReviews}
                 />
               </div>
             </div>
@@ -103,9 +110,11 @@ export default async function ProductPage({ params }) {
             </div>
           </div>
         </section>
-        <Suspense fallback={<Loading />}>
-          <ProductReviews reviews={reviews} />
-        </Suspense>
+        <section id="product-reviews" className="scroll-mt-24">
+          <Suspense fallback={<Loading />}>
+            <ProductReviews reviews={reviews} />
+          </Suspense>
+        </section>
       </main>
     </div>
   );

@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useState } from "react";
 import { Star } from "lucide-react";
 
 type ReviewData = {
@@ -15,7 +18,7 @@ type ReviewData = {
 const ReviewStats = ({ reviews }: { reviews: ReviewData[] }) => {
   const statsData = reviews.reduce(
     (acc, review) => {
-      const rating = Number(review.Rating) / 20; // Convert 100-scale to 5-scale
+      const rating = Number(review.Rating) / 20;
       acc[Math.floor(rating)] = (acc[Math.floor(rating)] || 0) + 1;
       return acc;
     },
@@ -67,50 +70,54 @@ const ReviewStats = ({ reviews }: { reviews: ReviewData[] }) => {
           </div>
         ))}
       </div>
-
-      <div className="flex flex-col items-center justify-center">
-        <div className="text-sm mb-2">Share your experience</div>
-        <div className="flex gap-1 mb-3">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <Star key={star} className="w-5 h-5 text-gray-200" />
-          ))}
-        </div>
-        <button className="bg-black text-white px-4 py-2 rounded-md text-sm">
-          Write a Review
-        </button>
-      </div>
     </div>
   );
 };
 
 const ReviewCard = ({ review }: { review: ReviewData }) => {
-  const rating = Number(review.Rating) / 20; // Convert 100-scale to 5-scale
+  const rating = Number(review.Rating) / 20;
   const images = review.Images?.split(",").filter(Boolean) || [];
-  const date = new Date(review["Date of Published"]).toLocaleDateString(
-    "en-US",
-    {
+
+  // Improved date parsing
+  const formatDate = (dateString: string) => {
+    // Try parsing different date formats
+    const date = new Date(dateString);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      // Try parsing DD/MM/YYYY format
+      const [day, month, year] = dateString.split("/");
+      const reformattedDate = new Date(`${year}-${month}-${day}`);
+
+      if (!isNaN(reformattedDate.getTime())) {
+        return reformattedDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+        });
+      }
+
+      return dateString;
+    }
+
+    return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "2-digit",
-    }
-  );
+    });
+  };
 
+  const formattedDate = formatDate(review["Date of Published"]);
   return (
     <div className="border-b border-gray-200 py-6">
       <div className="flex items-center gap-4 mb-4">
-        {review.Avatar ? (
-          <img
-            src={review.Avatar}
-            alt={review.Name}
-            className="w-10 h-10 rounded-full object-cover"
-          />
-        ) : (
-          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-            {review.Name[0]}
-          </div>
-        )}
+        <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+          {review.Name[0]}
+        </div>
         <div>
-          <div className="font-medium">{review.Name}</div>
+          <div className="font-medium">
+            {review.Name === "AliExpress Shopper" ? "Anonymous" : review.Name}
+          </div>
           <div className="flex items-center gap-2">
             <div className="flex gap-1">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -124,7 +131,7 @@ const ReviewCard = ({ review }: { review: ReviewData }) => {
                 />
               ))}
             </div>
-            <span className="text-sm text-gray-500">{date}</span>
+            <span className="text-sm text-gray-500">{formattedDate}</span>
           </div>
         </div>
       </div>
@@ -152,14 +159,27 @@ const ReviewCard = ({ review }: { review: ReviewData }) => {
 };
 
 const ProductReviews = ({ reviews }: { reviews: ReviewData[] }) => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedReviews = showAll ? reviews : reviews.slice(0, 10);
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <ReviewStats reviews={reviews} />
       <div className="divide-y divide-gray-200">
-        {reviews.map((review, index) => (
+        {displayedReviews.map((review, index) => (
           <ReviewCard key={index} review={review} />
         ))}
       </div>
+      {reviews.length > 10 && !showAll && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-50 transition-colors"
+          >
+            See more reviews
+          </button>
+        </div>
+      )}
     </div>
   );
 };
