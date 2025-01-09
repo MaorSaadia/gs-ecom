@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, X } from "lucide-react";
+import { Star, StarHalf, X } from "lucide-react";
 
 type ReviewData = {
   Country: string;
@@ -15,6 +15,36 @@ type ReviewData = {
   "Date of Published": string;
 };
 
+// Helper component for star rating display
+const StarRating = ({ rating }: { rating: number }) => {
+  return (
+    <div className="flex gap-1">
+      {[1, 2, 3, 4, 5].map((star) => {
+        if (star <= Math.floor(rating)) {
+          // Full star
+          return (
+            <Star
+              key={star}
+              className="w-4 h-4 fill-yellow-400 text-yellow-400"
+            />
+          );
+        } else if (star - 0.5 <= rating) {
+          // Half star
+          return (
+            <StarHalf
+              key={star}
+              className="w-4 h-4 fill-yellow-400 text-yellow-400"
+            />
+          );
+        } else {
+          // Empty star
+          return <Star key={star} className="w-4 h-4 text-gray-200" />;
+        }
+      })}
+    </div>
+  );
+};
+
 type ImageModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -22,7 +52,6 @@ type ImageModalProps = {
 };
 
 const ImageModal = ({ isOpen, onClose, image }: ImageModalProps) => {
-  // Prevent scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -30,7 +59,6 @@ const ImageModal = ({ isOpen, onClose, image }: ImageModalProps) => {
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup function to restore scrolling when component unmounts
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -53,7 +81,6 @@ const ImageModal = ({ isOpen, onClose, image }: ImageModalProps) => {
         >
           <X className="w-6 h-6" />
         </button>
-
         <img
           src={image}
           alt="Review"
@@ -75,27 +102,17 @@ const ReviewStats = ({ reviews }: { reviews: ReviewData[] }) => {
   );
 
   const totalReviews = reviews.length;
-  const avgRating = (
+  const avgRating =
     reviews.reduce((sum, review) => sum + Number(review.Rating), 0) /
     totalReviews /
-    20
-  ).toFixed(2);
+    20;
 
   return (
     <div className="flex gap-8 mb-8">
       <div className="flex flex-col items-center">
-        <div className="text-4xl font-bold">{avgRating}</div>
-        <div className="flex gap-1 my-2">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <Star
-              key={star}
-              className={`w-4 h-4 ${
-                star <= Number(avgRating)
-                  ? "fill-yellow-400 text-yellow-400"
-                  : "text-gray-200"
-              }`}
-            />
-          ))}
+        <div className="text-4xl font-bold">{avgRating.toFixed(2)}</div>
+        <div className="my-2">
+          <StarRating rating={avgRating} />
         </div>
         <div className="text-sm text-gray-500">{totalReviews} reviews</div>
       </div>
@@ -163,18 +180,7 @@ const ReviewCard = ({ review }: { review: ReviewData }) => {
               {review.Name === "AliExpress Shopper" ? "Anonymous" : review.Name}
             </div>
             <div className="flex items-center gap-2">
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`w-4 h-4 ${
-                      star <= rating
-                        ? "fill-yellow-400 text-yellow-400"
-                        : "text-gray-200"
-                    }`}
-                  />
-                ))}
-              </div>
+              <StarRating rating={rating} />
               <span className="text-sm text-gray-500">{formattedDate}</span>
             </div>
           </div>

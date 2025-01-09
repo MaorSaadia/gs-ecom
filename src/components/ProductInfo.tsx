@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { CheckCircle, Truck, Lock, Package, Gift, Star } from "lucide-react";
+import {
+  CheckCircle,
+  Truck,
+  Lock,
+  Package,
+  Gift,
+  Star,
+  StarHalf,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 import {
@@ -102,7 +110,34 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
       reviewsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  const StarRating = ({ rating }: { rating: number }) => {
+    return (
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((star) => {
+          if (star <= Math.floor(rating)) {
+            // Full star
+            return (
+              <Star
+                key={star}
+                className="w-4 h-4 fill-yellow-400 text-yellow-400"
+              />
+            );
+          } else if (star - 0.5 <= rating) {
+            // Half star
+            return (
+              <StarHalf
+                key={star}
+                className="w-4 h-4 fill-yellow-400 text-yellow-400"
+              />
+            );
+          } else {
+            // Empty star
+            return <Star key={star} className="w-4 h-4 text-gray-200" />;
+          }
+        })}
+      </div>
+    );
+  };
   return (
     <motion.div
       initial="hidden"
@@ -120,16 +155,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           onClick={scrollToReviews}
         >
           <div className="flex gap-1">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                className={`w-4 h-4 ${
-                  star <= averageRating
-                    ? "fill-yellow-400 text-yellow-400"
-                    : "text-gray-200"
-                }`}
-              />
-            ))}
+            <StarRating rating={averageRating} />
           </div>
           <span className="text-sm font-medium text-gray-600">
             {averageRating.toFixed(2)} ({totalReviews} reviews)
