@@ -32,8 +32,8 @@ export const products: Record<string, ProductData> = {
         },
       ],
       buttonColor: "#FFC200",
-      buttonText: "Buy Now", // Optional: will show "Buy {quantity} Now" if not provided
-      maxQuantity: 4, // Optional: override product maxQuantity
+      buttonText: "Buy Now",
+      maxQuantity: 4,
     },
 
     features: [

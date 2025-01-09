@@ -9,6 +9,10 @@ import { products } from "@/data/products";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
+import { getProductReviews } from "@/lib/getProductReviews";
+import ProductReviews from "@/components/ProductReviews";
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { id } = await params;
@@ -31,6 +35,8 @@ export default async function ProductPage({ params }) {
   }
 
   const productData = products[id];
+
+  const reviews = await getProductReviews(id);
 
   const badges = [
     { icon: Truck, title: "Fast Shipping", desc: "7-21 business days" },
@@ -97,6 +103,9 @@ export default async function ProductPage({ params }) {
             </div>
           </div>
         </section>
+        <Suspense fallback={<Loading />}>
+          <ProductReviews reviews={reviews} />
+        </Suspense>
       </main>
     </div>
   );
