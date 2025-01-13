@@ -105,30 +105,86 @@ export const products: Record<string, ProductData> = {
       rating: 4.7,
       count: 156,
     },
+    variants: [
+      {
+        type: "plugType",
+        options: [
+          { value: "UK", label: "UK Plug", inStock: true },
+          { value: "EU", label: "EU Plug", inStock: true },
+          { value: "US", label: "US Plug", inStock: true },
+        ],
+      },
+    ],
     payLink: {
       links: [
+        // UK plug variants
         {
           quantity: 1,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-1",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-1-uk",
+          variant: "UK",
         },
         {
           quantity: 2,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-2",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-2-uk",
+          variant: "UK",
         },
         {
           quantity: 3,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-3",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-3-uk",
+          variant: "UK",
         },
         {
           quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-4",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-4-uk",
+          variant: "UK",
+        },
+        // EU plug variants
+        {
+          quantity: 1,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-1-eu",
+          variant: "EU",
+        },
+        {
+          quantity: 2,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-2-eu",
+          variant: "EU",
+        },
+        {
+          quantity: 3,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-3-eu",
+          variant: "EU",
+        },
+        {
+          quantity: 4,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-4-eu",
+          variant: "EU",
+        },
+        // US plug variants
+        {
+          quantity: 1,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-1-us",
+          variant: "US",
+        },
+        {
+          quantity: 2,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-2-us",
+          variant: "US",
+        },
+        {
+          quantity: 3,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-3-us",
+          variant: "US",
+        },
+        {
+          quantity: 4,
+          url: "https://shop.mishbaby.com//_paylink/humidifier-4-us",
+          variant: "US",
         },
       ],
       buttonColor: "#FFC200",
       buttonText: "Buy Now",
       maxQuantity: 4,
     },
-
     features: [
       {
         icon: "Cloud",

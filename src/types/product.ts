@@ -1,4 +1,15 @@
 // types/product.ts
+
+export type ProductVariant = {
+  type: string; // e.g., "plugType", "color", "size"
+  options: {
+    value: string; // e.g., "UK", "EU", "US"
+    label: string; // Display name
+    inStock?: boolean;
+    image?: string; // Optional image URL for the variant
+  }[];
+};
+
 export type ProductReview = {
   rating: number;
   count: number;
@@ -18,6 +29,7 @@ export type ProductAccordionItem = {
 export type PayLinkItem = {
   quantity: number;
   url: string;
+  variant?: string; // Add variant identifier for different variant pay links
 };
 
 export type PayLinkConfig = {
@@ -46,6 +58,7 @@ export type ProductData = {
   };
   gallery: string[];
   payLink?: PayLinkConfig;
+  variants?: ProductVariant[]; // Add variants array
 };
 
 export type ProductFeatureDetail = {

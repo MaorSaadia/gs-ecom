@@ -7,12 +7,14 @@ import { ProductData } from "../types/product";
 
 interface BundlePricingProps {
   productData: ProductData;
+  selectedVariant?: string;
   onQuantityChange: (quantity: number) => void;
   onBuyNow: () => void;
 }
 
 const BundlePricing: React.FC<BundlePricingProps> = ({
   productData,
+  selectedVariant,
   onQuantityChange,
 }) => {
   const [selectedBundle, setSelectedBundle] = useState(1);
@@ -20,13 +22,25 @@ const BundlePricing: React.FC<BundlePricingProps> = ({
   const getBundles = (payLink: ProductData["payLink"]) => {
     if (!payLink?.links) return [];
 
-    return payLink.links.map((link) => {
-      const quantity = link.quantity;
+    // Filter links based on selected variant if it exists
+    const relevantLinks = payLink.links.filter(
+      (link) => !selectedVariant || link.variant === selectedVariant
+    );
+
+    // Group by quantity to avoid duplicates when variant is not selected
+    const uniqueQuantities = Array.from(
+      new Set(relevantLinks.map((link) => link.quantity))
+    );
+
+    return uniqueQuantities.map((quantity) => {
       const discount = quantity > 1 ? (quantity - 1) * 5 + 5 : 0;
       const baseTotal = productData.price * quantity;
       const discountedPrice = baseTotal * (1 - discount / 100);
       const originalTotal =
         (productData.originalPrice || productData.price) * quantity;
+
+      // Find the matching link
+      const link = relevantLinks.find((l) => l.quantity === quantity);
 
       return {
         quantity,
@@ -37,7 +51,7 @@ const BundlePricing: React.FC<BundlePricingProps> = ({
             : `Buy ${quantity} and Save ${discount}%`,
         price: discountedPrice,
         originalPrice: originalTotal,
-        url: link.url,
+        url: link?.url,
         popular: quantity === 2,
       };
     });
