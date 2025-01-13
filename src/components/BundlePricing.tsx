@@ -81,13 +81,13 @@ const BundlePricing: React.FC<BundlePricingProps> = ({
             whileTap={{ scale: 0.98 }}
             className={`relative rounded-xl border-2 p-4 cursor-pointer transition-colors ${
               selectedBundle === bundle.quantity
-                ? "border-yellow-400 bg-yellow-50"
-                : "border-gray-200 hover:border-yellow-200"
+                ? "border-lime-400 bg-lime-50"
+                : "border-gray-200 hover:border-lime-200"
             }`}
             onClick={() => setSelectedBundle(bundle.quantity)}
           >
             {bundle.popular && (
-              <div className="absolute -top-2 right-4 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">
+              <div className="absolute -top-2 right-4 bg-lime-400 text-xs font-bold px-2 py-1 rounded-full">
                 Most Popular
               </div>
             )}
@@ -96,7 +96,7 @@ const BundlePricing: React.FC<BundlePricingProps> = ({
               <div className="flex items-center gap-3">
                 <div
                   className={`w-5 h-5 rounded-full border-2 flex items-center justify-center
-                  ${selectedBundle === bundle.quantity ? "border-yellow-400 bg-yellow-400" : "border-gray-300"}`}
+                  ${selectedBundle === bundle.quantity ? "border-lime-400 bg-lime-400" : "border-gray-300"}`}
                 >
                   {selectedBundle === bundle.quantity && (
                     <Check className="w-3 h-3 text-white" />

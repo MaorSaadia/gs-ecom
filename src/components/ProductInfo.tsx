@@ -10,8 +10,11 @@ import {
   Star,
   StarHalf,
   Cloud,
+  CloudHail,
+  Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
+
 import {
   Accordion,
   AccordionContent,
@@ -36,6 +39,8 @@ const IconMap: Record<
   Truck,
   Gift,
   Cloud,
+  CloudHail,
+  Lightbulb,
 };
 
 export const ProductInfo: React.FC<ProductInfoProps> = ({
@@ -169,7 +174,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
     >
       {/* Title and Badge */}
       <motion.div variants={itemVariants} className="space-y-2 mt-2">
-        <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-lime-500 to-lime-600 bg-clip-text text-transparent">
           {productData.title}
         </h1>
         <div
@@ -202,8 +207,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
                     disabled={option.inStock === false}
                     className={`px-4 py-2 rounded-lg border transition-all ${
                       selectedVariants[variant.type] === option.value
-                        ? "border-yellow-500 bg-yellow-50"
-                        : "border-gray-200 hover:border-yellow-200"
+                        ? "border-lime-500 bg-lime-50"
+                        : "border-gray-200 hover:border-lime-200"
                     } ${option.inStock === false ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
                     {option.label || option.value}
@@ -237,9 +242,9 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
             <motion.div
               key={index}
               whileHover={{ x: 10 }}
-              className="flex items-center gap-3 p-3 rounded-lg hover:bg-yellow-50 transition-colors"
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-lime-50 transition-colors"
             >
-              <Icon className="w-5 h-5 text-yellow-500" />
+              <Icon className="w-5 h-5 text-lime-500" />
               <span className="text-gray-700">{feature.text}</span>
             </motion.div>
           );
@@ -252,7 +257,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all bg-yellow-400 text-black"
+            className="w-full py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition-all bg-lime-400 text-black"
             onClick={handlePayNowClick}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
@@ -265,14 +270,14 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
-              <Lock className="w-4 h-4 text-yellow-500" />
+              <Lock className="w-4 h-4 text-lime-500" />
               Secure Checkout
             </motion.div>
             <motion.div
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
-              <Package className="w-4 h-4 text-yellow-500" />
+              <Package className="w-4 h-4 text-lime-500" />
               Free Returns
             </motion.div>
           </motion.div>
@@ -282,13 +287,13 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
       {/* Accordion */}
       <motion.div
         variants={itemVariants}
-        className="border-t border-yellow-100 pt-6"
+        className="border-t border-lime-100 pt-6"
       >
         <Accordion type="multiple" className="space-y-2">
           {productData.accordionItems.map((item) => (
             <AccordionItem key={item.id} value={item.id}>
               <motion.div whileHover={{ x: 5 }}>
-                <AccordionTrigger className="hover:text-yellow-600">
+                <AccordionTrigger className="hover:text-lime-600">
                   {item.title}
                 </AccordionTrigger>
                 <AccordionContent>{item.content}</AccordionContent>

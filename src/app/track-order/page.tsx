@@ -36,7 +36,7 @@ const EnhancedTrackingPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="max-w-4xl mx-auto">
         <Card className="bg-white shadow-2xl border-0">
-          <CardHeader className="text-center py-8 bg-gradient-to-r from-slate-50 via-yellow-50 to-slate-50 rounded-t-xl">
+          <CardHeader className="text-center py-8 bg-gradient-to-r from-slate-50 via-lime-50 to-slate-50 rounded-t-xl">
             <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg transform -translate-y-2">
               <Box className="w-10 h-10 text-gray-500" />
             </div>
@@ -91,17 +91,17 @@ const EnhancedTrackingPage = () => {
           <CardFooter className="bg-gray-50 rounded-b-xl p-6 -mt-6">
             <div className="w-full flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-gray-600">
               <div className="flex items-center space-x-2">
-                <Package2 className="w-5 h-5 text-yellow-500" />
+                <Package2 className="w-5 h-5 text-lime-500" />
                 <span>Real-time Updates</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 bg-yellow-300 rounded-full"></div>
+              <div className="hidden sm:block w-1 h-1 bg-lime-300 rounded-full"></div>
               <div className="flex items-center space-x-2">
-                <Truck className="w-5 h-5 text-yellow-500" />
+                <Truck className="w-5 h-5 text-lime-500" />
                 <span>Global Shipping</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 bg-yellow-300 rounded-full"></div>
+              <div className="hidden sm:block w-1 h-1 bg-lime-300 rounded-full"></div>
               <div className="flex items-center space-x-2">
-                <Timer className="w-5 h-5 text-yellow-500" />
+                <Timer className="w-5 h-5 text-lime-500" />
                 <span>24/7 Tracking</span>
               </div>
             </div>

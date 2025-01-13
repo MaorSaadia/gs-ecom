@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-slate-50 via-yellow-50 to-slate-50 fixed w-full top-0 z-50">
+    <nav className="bg-gradient-to-r from-slate-50 via-lime-50 to-slate-50 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Mobile Menu Button */}
@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-start">
             <Link
               href="/contact-us"
-              className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-lime-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Contact
             </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className="hidden sm:flex flex-1 justify-end">
             <Link
               href="/track-order"
-              className="text-black hover:text-yellow-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
+              className="text-black hover:text-lime-500 px-4 py-2 text-sm font-medium rounded-full hover:bg-white/20 transition-all duration-200 flex items-center space-x-1"
             >
               Tracking
             </Link>

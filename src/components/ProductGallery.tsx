@@ -128,8 +128,8 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
                       onClick={() => setSelectedImage(actualIndex)}
                       className={`relative flex-1 aspect-square overflow-hidden rounded-lg transition-all duration-200 ${
                         selectedImage === actualIndex
-                          ? "ring-2 ring-yellow-500 shadow-lg m-1"
-                          : "ring-1 ring-gray-200 hover:ring-yellow-200 mt-4"
+                          ? "ring-2 ring-lime-500 shadow-lg m-1"
+                          : "ring-1 ring-gray-200 hover:ring-lime-200 mt-4"
                       }`}
                       aria-label={`View product image ${actualIndex + 1}`}
                       aria-current={selectedImage === actualIndex}

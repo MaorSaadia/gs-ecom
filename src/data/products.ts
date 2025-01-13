@@ -191,11 +191,11 @@ export const products: Record<string, ProductData> = {
         text: "3-in-1: Humidifier, Aromatherapy, and Night Light",
       },
       {
-        icon: "SoundWave",
+        icon: "CloudHail",
         text: "Rain Sounds & White Noise for Relaxation",
       },
       {
-        icon: "LightBulb",
+        icon: "Lightbulb",
         text: "Adjustable Brightness for Comfort",
       },
     ],

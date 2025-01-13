@@ -36,7 +36,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-yellow-50">
+    <footer className="bg-lime-50">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <motion.div
           initial="hidden"
@@ -58,9 +58,9 @@ const Footer = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="mailto:info@soapshear.com"
-                className="flex items-center text-gray-700 hover:text-yellow-600 text-sm group"
+                className="flex items-center text-gray-700 hover:text-lime-600 text-sm group"
               >
-                <Mail className="h-4 w-4 mr-2 group-hover:text-yellow-500 transition-colors duration-200" />
+                <Mail className="h-4 w-4 mr-2 group-hover:text-lime-500 transition-colors duration-200" />
                 info@gmail.com
               </motion.a>
             </div>
@@ -68,7 +68,7 @@ const Footer = () => {
 
           {/* Customer Service */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-gray-900 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">
+            <h3 className="font-bold text-gray-900 mb-4 border-b-2 border-lime-400 pb-2 inline-block">
               Customer Service
             </h3>
             <ul className="space-y-2">
@@ -84,7 +84,7 @@ const Footer = () => {
                         .toLowerCase()
                         .replace(/ & /g, "-")
                         .replace(/ /g, "-")}`}
-                      className="text-gray-700 hover:text-yellow-600 text-sm transition-colors duration-200 block"
+                      className="text-gray-700 hover:text-lime-600 text-sm transition-colors duration-200 block"
                     >
                       {item}
                     </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-gray-900 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">
+            <h3 className="font-bold text-gray-900 mb-4 border-b-2 border-lime-400 pb-2 inline-block">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -109,7 +109,7 @@ const Footer = () => {
                   >
                     <Link
                       href={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="text-gray-700 hover:text-yellow-600 text-sm transition-colors duration-200 block"
+                      className="text-gray-700 hover:text-lime-600 text-sm transition-colors duration-200 block"
                     >
                       {item}
                     </Link>
@@ -125,7 +125,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 pt-8 border-t border-yellow-200 flex flex-wrap justify-center sm:justify-between items-center gap-4"
+          className="mt-12 pt-8 border-t border-lime-200 flex flex-wrap justify-center sm:justify-between items-center gap-4"
         >
           <motion.p variants={itemVariants} className="text-gray-600 text-sm">
             © {currentYear} All rights reserved.

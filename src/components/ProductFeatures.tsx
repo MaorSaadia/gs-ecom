@@ -38,7 +38,7 @@ const Feature: React.FC<FeatureProps> = ({
           alt={title}
           className="w-full shadow-xl transition-all duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-lime-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
     </motion.div>
 
@@ -54,7 +54,7 @@ const Feature: React.FC<FeatureProps> = ({
       transition={{ delay: 0.3 }}
     >
       <motion.h2
-        className="text-3xl font-bold tracking-tight bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent"
+        className="text-3xl font-bold tracking-tight bg-gradient-to-r from-lime-500 to-lime-600 bg-clip-text text-transparent"
         whileHover={{ x: 10 }}
       >
         {title}
@@ -79,7 +79,7 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
     productFeatures[productId as keyof typeof productFeatures]?.stats || [];
 
   return (
-    <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-white via-yellow-50/30 to-white cursor-pointer">
+    <section className="py-4 md:py-12 px-4 bg-gradient-to-b from-white via-lime-50/30 to-white cursor-pointer">
       {stats.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,10 +96,10 @@ export const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="text-center p-6 rounded-2xl bg-white shadow-lg border border-yellow-100"
+                className="text-center p-6 rounded-2xl bg-white shadow-lg border border-lime-100"
               >
                 <motion.div
-                  className="text-4xl font-bold text-yellow-500"
+                  className="text-4xl font-bold text-lime-500"
                   whileHover={{ scale: 1.1 }}
                 >
                   {stat.value}

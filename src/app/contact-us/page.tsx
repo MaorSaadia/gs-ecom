@@ -74,8 +74,8 @@ const EnhancedCustomerService = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
-            {/* <div className="bg-yellow-100 p-4 rounded-full">
-              <HeadphonesIcon className="w-12 h-12 text-yellow-600" />
+            {/* <div className="bg-lime-100 p-4 rounded-full">
+              <HeadphonesIcon className="w-12 h-12 text-lime-600" />
             </div> */}
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -92,7 +92,7 @@ const EnhancedCustomerService = () => {
           <div className="lg:col-span-1 space-y-6">
             <Card className="bg-white shadow-xl border-0 transition-transform hover:scale-105">
               <CardContent className="p-6">
-                <Clock className="w-8 h-8 text-yellow-500 mb-4" />
+                <Clock className="w-8 h-8 text-lime-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
                 <p className="text-gray-600">
                   Round-the-clock assistance for all your inquiries
@@ -102,7 +102,7 @@ const EnhancedCustomerService = () => {
 
             <Card className="bg-white shadow-xl border-0 transition-transform hover:scale-105">
               <CardContent className="p-6">
-                <MessageSquare className="w-8 h-8 text-yellow-500 mb-4" />
+                <MessageSquare className="w-8 h-8 text-lime-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Quick Response</h3>
                 <p className="text-gray-600">
                   Get answers within 24 hours guaranteed
@@ -112,7 +112,7 @@ const EnhancedCustomerService = () => {
 
             <Card className="bg-white shadow-xl border-0 transition-transform hover:scale-105">
               <CardContent className="p-6">
-                <ShieldCheck className="w-8 h-8 text-yellow-500 mb-4" />
+                <ShieldCheck className="w-8 h-8 text-lime-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Secure Support</h3>
                 <p className="text-gray-600">
                   Your information is always protected
@@ -123,9 +123,9 @@ const EnhancedCustomerService = () => {
 
           {/* Contact Form */}
           <Card className="lg:col-span-2 shadow-xl border-0">
-            <CardHeader className="bg-gradient-to-r from-yellow-500 to-yellow-400 text-white p-6 rounded-t-xl">
+            <CardHeader className="bg-gradient-to-r from-lime-500 to-lime-400 text-white p-6 rounded-t-xl">
               <h2 className="text-2xl font-bold">Submit a Support Request</h2>
-              <p className="text-yellow-50">
+              <p className="text-lime-50">
                 Fill out the form below and we&apos;ll get back to you as soon
                 as possible
               </p>
@@ -224,7 +224,7 @@ const EnhancedCustomerService = () => {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-yellow-500 hover:bg-yellow-600 text-white"
+                  className="w-full h-12 bg-lime-500 hover:bg-lime-600 text-white"
                   disabled={isLoading}
                 >
                   {isLoading ? (
