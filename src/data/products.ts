@@ -96,18 +96,18 @@ export const products: Record<string, ProductData> = {
   },
   Mistify: {
     id: "Mistify",
-    title: "Rain Cloud Humidifier Oil Diffuser",
+    title: "Mistify Rain Cloud Humidifier Oil Diffuser",
     badge: "3-in-1 Multifunction",
     price: 39.99,
     originalPrice: 49.99,
     maxQuantity: 10,
-    review: {
-      rating: 4.7,
-      count: 156,
-    },
+    // review: {
+    //   rating: 4.7,
+    //   count: 156,
+    // },
     variants: [
       {
-        type: "plugType",
+        type: "plug Type",
         options: [
           { value: "UK", label: "UK Plug", inStock: true },
           { value: "EU", label: "EU Plug", inStock: true },
@@ -200,41 +200,41 @@ export const products: Record<string, ProductData> = {
       },
     ],
     accordionItems: [
-      {
-        id: "features",
-        title: "Why Choose This Humidifier?",
-        content:
-          "Experience relaxation and comfort with this 3-in-1 device. It combines a humidifier, aromatherapy diffuser, and night light to transform your bedroom or workspace into a calming sanctuary.",
-      },
-      {
-        id: "aromatherapy",
-        title: "Enhance Your Aromatherapy",
-        content:
-          "Pair the humidifier with your favorite essential oils to fill the room with delightful scents that help reduce stress and improve focus.",
-      },
-      {
-        id: "design",
-        title: "Elegant Design with Functionality",
-        content:
-          "The rain cloud design is not only a visual treat but also enhances the ambiance of any room. Adjustable brightness settings allow you to customize the lighting.",
-      },
+      // {
+      //   id: "features",
+      //   title: "Why Choose This Humidifier?",
+      //   content:
+      //     "Experience relaxation and comfort with this 3-in-1 device. It combines a humidifier, aromatherapy diffuser, and night light to transform your bedroom or workspace into a calming sanctuary.",
+      // },
+      // {
+      //   id: "aromatherapy",
+      //   title: "Enhance Your Aromatherapy",
+      //   content:
+      //     "Pair the humidifier with your favorite essential oils to fill the room with delightful scents that help reduce stress and improve focus.",
+      // },
+      // {
+      //   id: "design",
+      //   title: "Elegant Design with Functionality",
+      //   content:
+      //     "The rain cloud design is not only a visual treat but also enhances the ambiance of any room. Adjustable brightness settings allow you to customize the lighting.",
+      // },
       {
         id: "specs",
         title: "Product Specifications",
         content:
-          "Material: ABS + Silicone\nDimensions: 15cm x 15cm x 20cm\nCapacity: 300ml\nModes: Rain Sound, White Noise, Light-Only, and Humidifier Mode\nPackage Includes: 1x Rain Cloud Humidifier, 1x Remote Control, 1x USB Cable, 1x User Manual",
+          "Material: ABS + Silicone\nDimensions: 15cm x 15cm x 20cm\nCapacity: 250ml\nModes: Rain Sound, White Noise, Light-Only, and Humidifier Mode\nPackage Includes: 1x Rain Cloud Humidifier, 1x Remote Control, 1x USB Cable, 1x User Manual",
       },
       {
         id: "shipping",
         title: "Shipping Information",
         content:
-          "Free worldwide shipping on all orders. Delivery takes 7-21 business days. Optional express shipping is available for faster delivery.",
+          "Free worldwide shipping on all orders. Delivery times typically range from 7-21 business days, depending on your location and product availability.",
       },
       {
         id: "returns",
         title: "Return Policy",
         content:
-          "We offer a 30-day money-back guarantee. Return the product in its original condition for a full refund if you're not satisfied.",
+          "We offer a 14-day money-back guarantee. Return the product in its original condition for a full refund if you're not satisfied.",
       },
     ],
     gallery: [
@@ -299,16 +299,28 @@ export const productFeatures = {
           "Enjoy a soothing ambiance with natural rain sounds and white noise, perfect for meditation, sleep, or focused work.",
       },
       {
-        image: "products/mistify/feature-2.jpeg",
+        image: "products/mistify/feature-3.jpeg",
         title: "Aromatherapy and Humidification",
         description:
           "Turn your room into a calming retreat by adding essential oils for aromatherapy. Maintain optimal humidity levels while enjoying refreshing scents.",
       },
       {
-        image: "products/mistify/feature-3.jpeg",
+        image: "products/mistify/feature-4.jpeg",
         title: "Stylish and Functional Design",
         description:
           "With its modern rain cloud design, this humidifier doubles as a decorative piece. Ideal for bedrooms, desks, or any living space.",
+      },
+      {
+        image: "products/mistify/feature-5.jpeg",
+        title: "Easy to Add Water/Clean",
+        description:
+          "Large opening design, makes it easy to add water and less likely to spill out also make it easier clean the humidifier.",
+      },
+      {
+        image: "products/mistify/feature-6.jpeg",
+        title: "Add Essential Oil",
+        description:
+          "Drop 2-3 drops of essential oil into the water tank, the mist will be filled with fragrance, and the air will be full of fragrance.",
       },
     ],
     stats: [
@@ -317,12 +329,12 @@ export const productFeatures = {
         label: "Functions in One Device",
       },
       {
-        value: "300ml",
+        value: "250ml",
         label: "Water Tank Capacity",
       },
       {
-        value: "4.7★",
-        label: "Customer Rating",
+        value: "Essential Oil",
+        label: "Add 2-3 drops to fill the air with fragrance",
       },
     ],
   },

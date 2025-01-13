@@ -11,8 +11,8 @@ export type ProductVariant = {
 };
 
 export type ProductReview = {
-  rating: number;
-  count: number;
+  rating?: number;
+  count?: number;
 };
 
 export type ProductFeature = {
@@ -46,7 +46,7 @@ export type ProductData = {
   price: number;
   originalPrice?: number;
   maxQuantity: number;
-  review: ProductReview;
+  review?: ProductReview;
   features: ProductFeature[];
   accordionItems: ProductAccordionItem[];
   featuresDetail: {

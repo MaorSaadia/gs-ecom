@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Truck, RefreshCcw, LockKeyhole, HeadphonesIcon } from "lucide-react";
@@ -11,8 +11,8 @@ import { getProductReviews } from "@/lib/getProductReviews";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
-import ProductReviews from "@/components/ProductReviews";
-import Loading from "@/components/Loading";
+// import ProductReviews from "@/components/ProductReviews";
+// import Loading from "@/components/Loading";
 
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { id } = await params;
@@ -112,9 +112,9 @@ export default async function ProductPage({ params }) {
           </div>
         </section>
         <section id="product-reviews" className="scroll-mt-24">
-          <Suspense fallback={<Loading />}>
+          {/* <Suspense fallback={<Loading />}>
             <ProductReviews reviews={reviews} />
-          </Suspense>
+          </Suspense> */}
         </section>
       </main>
     </div>

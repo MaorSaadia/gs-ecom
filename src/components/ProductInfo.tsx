@@ -7,8 +7,8 @@ import {
   Lock,
   Package,
   Gift,
-  Star,
-  StarHalf,
+  // Star,
+  // StarHalf,
   Cloud,
   CloudHail,
   Lightbulb,
@@ -45,8 +45,8 @@ const IconMap: Record<
 
 export const ProductInfo: React.FC<ProductInfoProps> = ({
   productData,
-  averageRating = 0,
-  totalReviews = 0,
+  // averageRating = 0,
+  // totalReviews = 0,
 }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedVariants, setSelectedVariants] = useState<
@@ -132,52 +132,52 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
     visible: { opacity: 1, y: 0 },
   };
 
-  const StarRating = ({ rating }: { rating: number }) => {
-    return (
-      <div className="flex gap-1">
-        {[1, 2, 3, 4, 5].map((star) => {
-          if (star <= Math.floor(rating)) {
-            return (
-              <Star
-                key={star}
-                className="w-4 h-4 fill-yellow-400 text-yellow-400"
-              />
-            );
-          } else if (star - 0.5 <= rating) {
-            return (
-              <StarHalf
-                key={star}
-                className="w-4 h-4 fill-yellow-400 text-yellow-400"
-              />
-            );
-          } else {
-            return <Star key={star} className="w-4 h-4 text-gray-200" />;
-          }
-        })}
-      </div>
-    );
-  };
+  // const StarRating = ({ rating }: { rating: number }) => {
+  //   return (
+  //     <div className="flex gap-1">
+  //       {[1, 2, 3, 4, 5].map((star) => {
+  //         if (star <= Math.floor(rating)) {
+  //           return (
+  //             <Star
+  //               key={star}
+  //               className="w-4 h-4 fill-yellow-400 text-yellow-400"
+  //             />
+  //           );
+  //         } else if (star - 0.5 <= rating) {
+  //           return (
+  //             <StarHalf
+  //               key={star}
+  //               className="w-4 h-4 fill-yellow-400 text-yellow-400"
+  //             />
+  //           );
+  //         } else {
+  //           return <Star key={star} className="w-4 h-4 text-gray-200" />;
+  //         }
+  //       })}
+  //     </div>
+  //   );
+  // };
 
-  const scrollToReviews = () => {
-    const reviewsSection = document.getElementById("product-reviews");
-    if (reviewsSection) {
-      reviewsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToReviews = () => {
+  //   const reviewsSection = document.getElementById("product-reviews");
+  //   if (reviewsSection) {
+  //     reviewsSection.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="max-w-2xl mx-auto p-6 space-y-8 mt-2 md:mt-10 bg-white rounded-2xl shadow-lg"
+      className="max-w-2xl mx-auto p-6 space-y-8 mt-2 lg:mt-10 bg-white rounded-2xl shadow-lg"
     >
       {/* Title and Badge */}
       <motion.div variants={itemVariants} className="space-y-2 mt-2">
         <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-lime-500 to-lime-600 bg-clip-text text-transparent">
           {productData.title}
         </h1>
-        <div
+        {/* <div
           className="flex items-center gap-2 cursor-pointer"
           onClick={scrollToReviews}
         >
@@ -185,7 +185,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           <span className="text-sm font-medium text-gray-600">
             {averageRating.toFixed(2)} ({totalReviews} reviews)
           </span>
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Variant Selection */}
@@ -195,7 +195,6 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
             <div key={variant.type} className="space-y-2">
               <h3 className="font-medium text-gray-700">
                 {variant.type.charAt(0).toUpperCase() + variant.type.slice(1)}{" "}
-                Type
               </h3>
               <div className="flex flex-wrap gap-2">
                 {variant.options.map((option) => (
@@ -235,7 +234,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
       </motion.div>
 
       {/* Features Section */}
-      <motion.div variants={itemVariants} className="space-y-3 pt-4">
+      <motion.div variants={itemVariants} className="space-y-3">
         {productData.features.map((feature, index) => {
           const Icon = IconMap[feature.icon] || CheckCircle;
           return (

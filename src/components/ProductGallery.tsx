@@ -48,7 +48,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
       {/* Main Image */}
       <motion.div
         layout
-        className="relative aspect-square w-full overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg shadow-orange-100"
+        className="relative aspect-square w-full overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg shadow-lime-100"
       >
         <AnimatePresence mode="wait">
           <motion.img

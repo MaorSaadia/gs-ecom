@@ -2,8 +2,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,9 +44,11 @@ const Navbar = () => {
 
           {/* Centered Logo */}
           <div className="flex-shrink-0 flex items-center absolute left-1/2 transform -translate-x-1/2">
-            <div className="bg-white p-3 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110 cursor-pointer">
-              <img src="/logo-1.png" alt="logo" className="h-8 w-auto" />
-            </div>
+            <Link href="/Mistify">
+              <div className="bg-white p-3 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+                <img src="/logo.png" alt="logo" className="h-8 w-auto" />
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation - Right Side */}
