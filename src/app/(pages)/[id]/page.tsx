@@ -65,6 +65,7 @@ export default async function ProductPage({ params }) {
                   <ProductGallery productId={productData.id} />
                 </div>
               </div>
+
               <div>
                 <ProductInfo
                   productId={productData.id}

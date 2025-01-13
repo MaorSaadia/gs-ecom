@@ -94,103 +94,100 @@ export const products: Record<string, ProductData> = {
       stats: undefined,
     },
   },
-  grindingSoapBox: {
-    id: "grindingSoapBox",
-    title: "Grinding Soap Box: Hygienic Soap Solution",
-    badge: "New Arrival",
-    price: 19.95,
-    originalPrice: 24.99,
-    maxQuantity: 15,
+  Mistify: {
+    id: "Mistify",
+    title: "Rain Cloud Humidifier Oil Diffuser",
+    badge: "3-in-1 Multifunction",
+    price: 39.99,
+    originalPrice: 49.99,
+    maxQuantity: 10,
     review: {
-      rating: 4.6,
-      count: 28,
+      rating: 4.7,
+      count: 156,
     },
     payLink: {
       links: [
         {
           quantity: 1,
-          url: "https://shop.mishbaby.com//_paylink/link-for-1-item",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-1",
         },
         {
           quantity: 2,
-          url: "https://shop.mishbaby.com//_paylink/link-for-2-items",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-2",
         },
         {
           quantity: 3,
-          url: "https://shop.mishbaby.com//_paylink/link-for-3-items",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-3",
         },
         {
           quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/link-for-4-items",
+          url: "https://shop.mishbaby.com//_paylink/humidifier-4",
         },
       ],
       buttonColor: "#FFC200",
-      buttonText: "Buy Now", // Optional: will show "Buy {quantity} Now" if not provided
-      maxQuantity: 4, // Optional: override product maxQuantity
+      buttonText: "Buy Now",
+      maxQuantity: 4,
     },
 
     features: [
       {
-        icon: "Sparkles",
-        text: "Innovative Design for Hygienic Use",
+        icon: "Cloud",
+        text: "3-in-1: Humidifier, Aromatherapy, and Night Light",
       },
       {
-        icon: "ShieldCheck",
-        text: "Waterproof & Durable",
+        icon: "SoundWave",
+        text: "Rain Sounds & White Noise for Relaxation",
       },
       {
-        icon: "AdjustmentsHorizontal",
-        text: "Adjustable Powder Output",
-      },
-      {
-        icon: "Hammer",
-        text: "Tool-Free Installation",
+        icon: "LightBulb",
+        text: "Adjustable Brightness for Comfort",
       },
     ],
     accordionItems: [
       {
         id: "features",
-        title: "Why Choose This Soap Box?",
+        title: "Why Choose This Humidifier?",
         content:
-          "Keep your soap dry and hygienic with this innovative grinding container. Avoid soggy soap and bacteria by easily grinding your soap into fine powder for mess-free use.",
+          "Experience relaxation and comfort with this 3-in-1 device. It combines a humidifier, aromatherapy diffuser, and night light to transform your bedroom or workspace into a calming sanctuary.",
+      },
+      {
+        id: "aromatherapy",
+        title: "Enhance Your Aromatherapy",
+        content:
+          "Pair the humidifier with your favorite essential oils to fill the room with delightful scents that help reduce stress and improve focus.",
       },
       {
         id: "design",
-        title: "Durable & Waterproof Design",
+        title: "Elegant Design with Functionality",
         content:
-          "Built with ABS plastic, stainless steel components, and a silicone sealing strip to keep soap dry and fragrant while resisting rust and wear.",
-      },
-      {
-        id: "adjustment",
-        title: "Adjustable Output Levels",
-        content:
-          "Customize your soap powder output with 3 adjustable levels. Each soap bar provides up to 5000 uses for long-lasting efficiency.",
-      },
-      {
-        id: "installation",
-        title: "Easy Installation",
-        content:
-          "Comes with a strong adhesive for quick, tool-free installation. Perfect for bathrooms, kitchens, RVs, and more.",
+          "The rain cloud design is not only a visual treat but also enhances the ambiance of any room. Adjustable brightness settings allow you to customize the lighting.",
       },
       {
         id: "specs",
         title: "Product Specifications",
         content:
-          "Material: ABS\nColor: White\nPackage Includes: 1x Grinding Soap Box",
+          "Material: ABS + Silicone\nDimensions: 15cm x 15cm x 20cm\nCapacity: 300ml\nModes: Rain Sound, White Noise, Light-Only, and Humidifier Mode\nPackage Includes: 1x Rain Cloud Humidifier, 1x Remote Control, 1x USB Cable, 1x User Manual",
+      },
+      {
+        id: "shipping",
+        title: "Shipping Information",
+        content:
+          "Free worldwide shipping on all orders. Delivery takes 7-21 business days. Optional express shipping is available for faster delivery.",
       },
       {
         id: "returns",
-        title: "Our Return Policy",
+        title: "Return Policy",
         content:
           "We offer a 30-day money-back guarantee. Return the product in its original condition for a full refund if you're not satisfied.",
       },
     ],
     gallery: [
-      "/grindingSoapBox//main.jpeg",
-      "/grindingSoapBox//1.jpeg",
-      "/grindingSoapBox//2.jpeg",
-      "/grindingSoapBox//3.jpeg",
-      "/grindingSoapBox//4.jpeg",
+      "products/mistify/main.jpeg",
+      "products/mistify/1.jpeg",
+      "products/mistify/2.jpeg",
+      "products/mistify/3.jpeg",
+      "products/mistify/4.jpeg",
+      "products/mistify/5.jpeg",
     ],
     featuresDetail: {
       mainFeatures: [],
@@ -201,42 +198,6 @@ export const products: Record<string, ProductData> = {
 };
 
 export const productFeatures = {
-  soapshear: {
-    mainFeatures: [
-      {
-        image: "/product-detail-1.jpeg",
-        title: "Transform Soap Into Smooth, Usable Powder Effortlessly",
-        description:
-          "With SoapShear, keep bar soap fresh and dry. Its precise grating mechanism transforms messy bars into fine powder with a simple press, making your daily routine cleaner and more efficient.",
-      },
-      {
-        image: "/product-detail-2.jpeg",
-        title: "Make your soap last longer",
-        description:
-          "SoapShear grinds just the right amount of soap, helping your bars last longer and saving you money. The precision control ensures zero waste and maximum efficiency in your soap usage.",
-      },
-      {
-        image: "/product-detail-3.jpeg",
-        title: "Innovative Design Meets Functionality",
-        description:
-          "Our sleek, modern design isn't just about looks. Every aspect of SoapShear has been engineered for optimal performance, durability, and ease of use, making it a perfect addition to any bathroom or kitchen.",
-      },
-    ],
-    stats: [
-      {
-        value: "30%",
-        label: "Longer Lasting Soap",
-      },
-      {
-        value: "5k+",
-        label: "Happy Customers",
-      },
-      {
-        value: "4.9★",
-        label: "Average Rating",
-      },
-    ],
-  },
   ticTacToeGame: {
     mainFeatures: [
       {
@@ -273,45 +234,39 @@ export const productFeatures = {
       },
     ],
   },
-  grindingSoapBox: {
+  Mistify: {
     mainFeatures: [
       {
-        image: "/grinding-soap-box-feature-1.jpeg",
-        title: "Innovative Design for a Cleaner Experience",
+        image: "products/mistify/feature-1.jpeg",
+        title: "Relax with Rain Sounds and White Noise",
         description:
-          "Say goodbye to soggy soap and bacterial growth. The soap grinding container transforms soap bars into fine powder effortlessly, ensuring a clean and refreshing experience every time.",
+          "Enjoy a soothing ambiance with natural rain sounds and white noise, perfect for meditation, sleep, or focused work.",
       },
       {
-        image: "/grinding-soap-box-feature-2.jpeg",
-        title: "Durable and Waterproof Construction",
+        image: "products/mistify/feature-2.jpeg",
+        title: "Aromatherapy and Humidification",
         description:
-          "Made with ABS plastic and a built-in silicone sealing strip, the design keeps soap dry and fragrant. Stainless steel components prevent rust, ensuring long-lasting durability.",
+          "Turn your room into a calming retreat by adding essential oils for aromatherapy. Maintain optimal humidity levels while enjoying refreshing scents.",
       },
       {
-        image: "/grinding-soap-box-feature-3.jpeg",
-        title: "Adjustable Powder Output Levels",
+        image: "products/mistify/feature-3.jpeg",
+        title: "Stylish and Functional Design",
         description:
-          "Choose from 3 powder output levels for customized soap usage. One soap bar can be ground up to 5000 times, making it both efficient and practical.",
-      },
-      {
-        image: "/grinding-soap-box-feature-4.jpeg",
-        title: "Tool-Free Installation",
-        description:
-          "Comes with a strong adhesive for easy, drill-free installation. Perfect for bathrooms, kitchens, RVs, and more, saving space and protecting your walls.",
+          "With its modern rain cloud design, this humidifier doubles as a decorative piece. Ideal for bedrooms, desks, or any living space.",
       },
     ],
     stats: [
       {
-        value: "3 Levels",
-        label: "Adjustable Output",
+        value: "3-in-1",
+        label: "Functions in One Device",
       },
       {
-        value: "5000x",
-        label: "Soap Grinding Uses",
+        value: "300ml",
+        label: "Water Tank Capacity",
       },
       {
         value: "4.7★",
-        label: "Average Rating",
+        label: "Customer Rating",
       },
     ],
   },
