@@ -50,7 +50,7 @@ const Footer = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              src="/logo-1.png"
+              src="/logo.png"
               alt="logo"
               className="h-10 w-auto"
             />
