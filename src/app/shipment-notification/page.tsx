@@ -16,6 +16,7 @@ interface OrderItem {
   price: number;
   size: string;
   color: string;
+  type: string;
 }
 
 interface FormData {
@@ -51,6 +52,7 @@ const OrderShipmentNotification = () => {
         price: 0,
         size: "",
         color: "",
+        type: "",
       },
     ],
     orderTotal: 0,
@@ -85,6 +87,7 @@ const OrderShipmentNotification = () => {
           price: 0,
           size: "",
           color: "",
+          type: "",
         },
       ],
     }));
@@ -130,6 +133,7 @@ const OrderShipmentNotification = () => {
             price: 0,
             size: "",
             color: "",
+            type: "",
           },
         ],
         orderTotal: 0,
@@ -361,6 +365,13 @@ const OrderShipmentNotification = () => {
                           required
                           step="0.01"
                           min="0"
+                        />
+                        <Input
+                          type="text"
+                          name={`items.${index}.type`}
+                          value={item.type}
+                          onChange={handleChange}
+                          placeholder="Type"
                         />
                         <Input
                           type="text"
