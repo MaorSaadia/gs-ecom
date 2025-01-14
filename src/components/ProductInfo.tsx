@@ -245,7 +245,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               whileHover={{ x: 10 }}
               className="flex items-center gap-3 p-3 rounded-lg hover:bg-lime-50 transition-colors"
             >
-              <Icon className="w-5 h-5 text-lime-500" />
+              <Icon className="w-7 h-7 sm:w-5 sm:h-5 text-lime-500" />
               <span className="text-gray-700">{feature.text}</span>
             </motion.div>
           );
@@ -271,14 +271,14 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
-              <Lock className="w-4 h-4 text-lime-500" />
+              <Lock className="w-9 h-9 sm:w-6 sm:h-6 text-lime-500" />
               Secure Checkout
             </motion.div>
             <motion.div
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
-              <TruckIcon className="w-4 h-4 text-lime-500" />
+              <TruckIcon className="w-9 h-9 sm:w-6 sm:h-6 text-lime-500" />
               Free Worldwide Shipping
             </motion.div>
             {/* <motion.div

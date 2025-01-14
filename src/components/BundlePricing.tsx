@@ -110,10 +110,10 @@ const BundlePricing: React.FC<BundlePricingProps> = ({
               </div>
 
               <div className="text-right">
-                <div className="font-bold">${bundle.price.toFixed(2)} USD</div>
+                <div className="font-bold">${bundle.price.toFixed(2)}</div>
                 {bundle.originalPrice > bundle.price && (
                   <div className="text-sm text-gray-500 line-through">
-                    ${bundle.originalPrice.toFixed(2)} USD
+                    ${bundle.originalPrice.toFixed(2)}
                   </div>
                 )}
               </div>

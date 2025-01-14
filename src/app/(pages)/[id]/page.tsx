@@ -21,7 +21,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   return productData
     ? {
         title: productData.title,
-        description: `Buy ${productData.title} - free shipping`,
+        description: `Buy ${productData.title} - Free Shipping`,
       }
     : { title: "Product Not Found" };
 }
