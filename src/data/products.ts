@@ -26,14 +26,10 @@ export const products: Record<string, ProductData> = {
           quantity: 3,
           url: "https://shop.mishbaby.com//_paylink/AZRFLqKQ",
         },
-        {
-          quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/AZRFLyUg",
-        },
       ],
       buttonColor: "#FFC200",
       buttonText: "Buy Now",
-      maxQuantity: 4,
+      maxQuantity: 3,
     },
 
     features: [
@@ -98,8 +94,8 @@ export const products: Record<string, ProductData> = {
     id: "Mistify",
     title: "Mistify Rain Cloud Humidifier Oil Diffuser",
     badge: "3-in-1 Multifunction",
-    price: 39.99,
-    originalPrice: 49.99,
+    price: 48.99,
+    originalPrice: 74.99,
     maxQuantity: 10,
     // review: {
     //   rating: 4.7,
@@ -109,7 +105,7 @@ export const products: Record<string, ProductData> = {
       {
         type: "plug Type",
         options: [
-          { value: "UK", label: "UK Plug", inStock: true },
+          // { value: "UK", label: "UK Plug", inStock: true },
           { value: "EU", label: "EU Plug", inStock: true },
           { value: "US", label: "US Plug", inStock: true },
         ],
@@ -118,72 +114,59 @@ export const products: Record<string, ProductData> = {
     payLink: {
       links: [
         // UK plug variants
-        {
-          quantity: 1,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-1-uk",
-          variant: "UK",
-        },
-        {
-          quantity: 2,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-2-uk",
-          variant: "UK",
-        },
-        {
-          quantity: 3,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-3-uk",
-          variant: "UK",
-        },
-        {
-          quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-4-uk",
-          variant: "UK",
-        },
+        // {
+        //   quantity: 1,
+        //   url: "https://shop.mishbaby.com//_paylink/humidifier-1-uk",
+        //   variant: "UK",
+        // },
+        // {
+        //   quantity: 2,
+        //   url: "https://shop.mishbaby.com//_paylink/humidifier-2-uk",
+        //   variant: "UK",
+        // },
+        // {
+        //   quantity: 3,
+        //   url: "https://shop.mishbaby.com//_paylink/humidifier-3-uk",
+        //   variant: "UK",
+        // },
+
         // EU plug variants
         {
           quantity: 1,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-1-eu",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1kiM",
           variant: "EU",
         },
         {
           quantity: 2,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-2-eu",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1tKx",
           variant: "EU",
         },
         {
           quantity: 3,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-3-eu",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1y8Y",
           variant: "EU",
         },
-        {
-          quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-4-eu",
-          variant: "EU",
-        },
+
         // US plug variants
         {
           quantity: 1,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-1-us",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1CrA",
           variant: "US",
         },
         {
           quantity: 2,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-2-us",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1TbD",
           variant: "US",
         },
         {
           quantity: 3,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-3-us",
-          variant: "US",
-        },
-        {
-          quantity: 4,
-          url: "https://shop.mishbaby.com//_paylink/humidifier-4-us",
+          url: "https://shop.mishbaby.com//_paylink/AZRj1aVH",
           variant: "US",
         },
       ],
       buttonColor: "#FFC200",
       buttonText: "Buy Now",
-      maxQuantity: 4,
+      maxQuantity: 3,
     },
     features: [
       {
