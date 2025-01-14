@@ -13,7 +13,7 @@ import {
   CloudHail,
   Lightbulb,
   TruckIcon,
-  HeartIcon,
+  // HeartIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -281,13 +281,13 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               <TruckIcon className="w-4 h-4 text-lime-500" />
               Free Worldwide Shipping
             </motion.div>
-            <motion.div
+            {/* <motion.div
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
               <HeartIcon className="w-4 h-4 text-lime-500" />
               Satisfaction Guaranteed
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </motion.div>
       )}
