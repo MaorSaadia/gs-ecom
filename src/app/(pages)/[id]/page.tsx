@@ -45,7 +45,7 @@ export default async function ProductPage({ params }) {
 
   const badges = [
     { icon: Truck, title: "Fast Shipping", desc: "7-21 business days" },
-    { icon: RefreshCcw, title: "Free Returns", desc: "30-day guarantee" },
+    { icon: RefreshCcw, title: "Returns/Refund", desc: "30-day guarantee" },
     { icon: LockKeyhole, title: "Secure Payment", desc: "100% protected" },
     {
       icon: HeadphonesIcon,

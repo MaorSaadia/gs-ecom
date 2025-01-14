@@ -205,7 +205,7 @@ export const products: Record<string, ProductData> = {
         id: "specs",
         title: "Product Specifications",
         content:
-          "Material: ABS + Silicone\nDimensions: 15cm x 15cm x 20cm\nCapacity: 250ml\nModes: Rain Sound, White Noise, Light-Only, and Humidifier Mode\nPackage Includes: 1x Rain Cloud Humidifier, 1x Remote Control, 1x USB Cable, 1x User Manual",
+          "Material: ABS + Silicone\nDimensions: 15cm x 15cm x 20cm\nCapacity: 250ml\nModes: Rain Sound, White Noise, Light-Only, and Humidifier Mode\nPackage Includes: 1x Rain Cloud Humidifier, 1x USB Cable, 1x User Manual",
       },
       {
         id: "shipping",

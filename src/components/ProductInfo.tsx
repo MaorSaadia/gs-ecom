@@ -5,13 +5,15 @@ import {
   CheckCircle,
   Truck,
   Lock,
-  Package,
+  // Package,
   Gift,
   // Star,
   // StarHalf,
   Cloud,
   CloudHail,
   Lightbulb,
+  TruckIcon,
+  HeartIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -276,8 +278,15 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               whileHover={{ y: -2 }}
               className="flex items-center gap-2"
             >
-              <Package className="w-4 h-4 text-lime-500" />
-              Free Returns
+              <TruckIcon className="w-4 h-4 text-lime-500" />
+              Free Worldwide Shipping
+            </motion.div>
+            <motion.div
+              whileHover={{ y: -2 }}
+              className="flex items-center gap-2"
+            >
+              <HeartIcon className="w-4 h-4 text-lime-500" />
+              Satisfaction Guaranteed
             </motion.div>
           </motion.div>
         </motion.div>
