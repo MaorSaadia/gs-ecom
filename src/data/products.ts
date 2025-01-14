@@ -90,8 +90,8 @@ export const products: Record<string, ProductData> = {
       stats: undefined,
     },
   },
-  Mistify: {
-    id: "Mistify",
+  mistify: {
+    id: "mistify",
     title: "Mistify Rain Cloud Humidifier Oil Diffuser",
     badge: "3-in-1 Multifunction",
     price: 48.99,
@@ -273,7 +273,7 @@ export const productFeatures = {
       },
     ],
   },
-  Mistify: {
+  mistify: {
     mainFeatures: [
       {
         image: "products/mistify/feature-1.jpeg",
