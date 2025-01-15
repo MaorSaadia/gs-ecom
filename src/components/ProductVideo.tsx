@@ -1,7 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Play, Pause } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import {
+  Play,
+  Pause,
+  Maximize,
+  Minimize,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import { ProductVideo as ProductVideoType } from "../types/product";
 
 interface ProductVideoProps {
@@ -10,23 +17,86 @@ interface ProductVideoProps {
 
 export const ProductVideo = ({ video }: ProductVideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleLoadedMetadata = () => {
+      setDuration(video.duration);
+    };
+
+    const handleTimeUpdate = () => {
+      setCurrentTime(video.currentTime);
+    };
+
+    video.addEventListener("loadedmetadata", handleLoadedMetadata);
+    video.addEventListener("timeupdate", handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, []);
 
   const togglePlay = () => {
-    const videoElement = document.getElementById(
-      "product-video"
-    ) as HTMLVideoElement;
-    if (videoElement.paused) {
-      videoElement.play();
+    if (!videoRef.current) return;
+
+    if (videoRef.current.paused) {
+      videoRef.current.play();
       setIsPlaying(true);
     } else {
-      videoElement.pause();
+      videoRef.current.pause();
       setIsPlaying(false);
     }
   };
 
+  const toggleFullscreen = async () => {
+    if (!containerRef.current) return;
+
+    if (!document.fullscreenElement) {
+      await containerRef.current.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      await document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(!isMuted);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!videoRef.current) return;
+
+    const progressBar = e.currentTarget;
+    const rect = progressBar.getBoundingClientRect();
+    const pos = (e.clientX - rect.left) / rect.width;
+    videoRef.current.currentTime = pos * duration;
+  };
+
   return (
-    <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
+    <div
+      ref={containerRef}
+      className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-lg group"
+    >
       <video
+        ref={videoRef}
         id="product-video"
         className="w-full h-full object-cover"
         src={video.url}
@@ -38,29 +108,79 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
         Your browser does not support the video tag.
       </video>
 
-      <button
-        onClick={togglePlay}
-        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors group"
-      >
-        <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
-          {isPlaying ? (
-            <Pause className="w-8 h-8 text-gray-900" />
-          ) : (
-            <Play className="w-8 h-8 text-gray-900 ml-1" />
-          )}
+      {/* Overlay Controls */}
+      <div className="absolute inset-0 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-b from-black/30 via-transparent to-black/60">
+        {/* Top Controls */}
+        <div className="p-2 flex justify-end">
+          <button
+            onClick={toggleFullscreen}
+            className="p-1 rounded-full bg-black/40 hover:bg-black/60 transition-colors"
+          >
+            {isFullscreen ? (
+              <Minimize className="w-4 h-4 text-white" />
+            ) : (
+              <Maximize className="w-4 h-4 text-white" />
+            )}
+          </button>
         </div>
-      </button>
 
-      {/* {(video.title || video.description) && (
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
-          {video.title && (
-            <h3 className="text-lg font-semibold mb-1">{video.title}</h3>
-          )}
-          {video.description && (
-            <p className="text-sm text-gray-200">{video.description}</p>
-          )}
+        {/* Center Play Button */}
+        <button
+          onClick={togglePlay}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
+            {isPlaying ? (
+              <Pause className="w-6 h-6 text-gray-900" />
+            ) : (
+              <Play className="w-6 h-6 text-gray-900 ml-1" />
+            )}
+          </div>
+        </button>
+
+        {/* Bottom Controls */}
+        <div className="p-3 space-y-1.5">
+          {/* Progress Bar */}
+          <div
+            className="w-full h-1 bg-white/30 rounded cursor-pointer"
+            onClick={handleProgressClick}
+          >
+            <div
+              className="h-full bg-lime-500 rounded"
+              style={{ width: `${(currentTime / duration) * 100}%` }}
+            />
+          </div>
+
+          {/* Time and Volume Controls */}
+          <div className="flex items-center justify-between text-white">
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={togglePlay}
+                className="p-1 hover:bg-white/20 rounded-full"
+              >
+                {isPlaying ? (
+                  <Pause className="w-3 h-3" />
+                ) : (
+                  <Play className="w-3 h-3" />
+                )}
+              </button>
+              <button
+                onClick={toggleMute}
+                className="p-1 hover:bg-white/20 rounded-full"
+              >
+                {isMuted ? (
+                  <VolumeX className="w-3 h-3" />
+                ) : (
+                  <Volume2 className="w-3 h-3" />
+                )}
+              </button>
+              <span className="text-xs">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </span>
+            </div>
+          </div>
         </div>
-      )} */}
+      </div>
     </div>
   );
 };
