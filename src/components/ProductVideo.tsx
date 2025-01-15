@@ -18,8 +18,6 @@ interface ProductVideoProps {
 export const ProductVideo = ({ video }: ProductVideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,24 +25,6 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    const handleLoadedMetadata = () => {
-      console.log("Loaded Metadata:", video.duration);
-      setDuration(video.duration);
-    };
-
-    const handleTimeUpdate = () => {
-      console.log("Current Time:", video.currentTime);
-      setCurrentTime(video.currentTime);
-    };
-
-    video.addEventListener("loadedmetadata", handleLoadedMetadata);
-    video.addEventListener("timeupdate", handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-    };
   }, []);
 
   const togglePlay = () => {
@@ -75,21 +55,6 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
     if (!videoRef.current) return;
     videoRef.current.muted = !videoRef.current.muted;
     setIsMuted(!isMuted);
-  };
-
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-  };
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!videoRef.current) return;
-
-    const progressBar = e.currentTarget;
-    const rect = progressBar.getBoundingClientRect();
-    const pos = (e.clientX - rect.left) / rect.width;
-    videoRef.current.currentTime = pos * duration;
   };
 
   return (
@@ -143,20 +108,6 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
 
         {/* Bottom Controls */}
         <div className="p-3 space-y-1.5">
-          {/* Progress Bar */}
-          <div
-            className="w-full h-1 bg-white/30 rounded cursor-pointer"
-            onClick={handleProgressClick}
-          >
-            <div
-              className="h-full bg-lime-500 rounded"
-              style={{
-                width:
-                  duration > 0 ? `${(currentTime / duration) * 100}%` : "0%",
-              }}
-            />
-          </div>
-
           {/* Time and Volume Controls */}
           <div className="flex items-center justify-between text-white">
             <div className="flex items-center space-x-3">
@@ -180,9 +131,6 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
                   <Volume2 className="w-3 h-3" />
                 )}
               </button>
-              <span className="text-xs">
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </span>
             </div>
           </div>
         </div>
