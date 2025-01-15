@@ -70,7 +70,6 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
         poster={video.thumbnail}
         preload="metadata"
         playsInline
-        muted
         onEnded={() => setIsPlaying(false)}
       >
         Your browser does not support the video tag.
