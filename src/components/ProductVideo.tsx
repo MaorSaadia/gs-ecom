@@ -29,10 +29,12 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
     if (!video) return;
 
     const handleLoadedMetadata = () => {
+      console.log("Loaded Metadata:", video.duration);
       setDuration(video.duration);
     };
 
     const handleTimeUpdate = () => {
+      console.log("Current Time:", video.currentTime);
       setCurrentTime(video.currentTime);
     };
 
@@ -103,6 +105,7 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
         poster={video.thumbnail}
         preload="metadata"
         playsInline
+        muted
         onEnded={() => setIsPlaying(false)}
       >
         Your browser does not support the video tag.
@@ -147,7 +150,10 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
           >
             <div
               className="h-full bg-lime-500 rounded"
-              style={{ width: `${(currentTime / duration) * 100}%` }}
+              style={{
+                width:
+                  duration > 0 ? `${(currentTime / duration) * 100}%` : "0%",
+              }}
             />
           </div>
 
