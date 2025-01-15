@@ -1,24 +1,21 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/mistify");
+  }, [router]);
+
+  // Return minimal content while redirecting
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Product Section */}
-          <section className="py-8 md:py-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Mobile Product Title - Only show on mobile */}
-
-              {/* Product Gallery and Info */}
-            </div>
-          </section>
-          {/* Divider */}
-
-          {/* Features Section */}
-
-          {/* Trust Badges */}
-        </div>
-      </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <p>Redirecting...</p>
+      </div>
     </div>
   );
 }

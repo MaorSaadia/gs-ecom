@@ -19,13 +19,41 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const controlsTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
   }, []);
+
+  useEffect(() => {
+    // Clear existing timeout
+    if (controlsTimeoutRef.current) {
+      clearTimeout(controlsTimeoutRef.current);
+    }
+
+    // If video is playing, hide controls after 1 second
+    if (isPlaying) {
+      controlsTimeoutRef.current = setTimeout(() => {
+        setShowControls(false);
+      }, 1000);
+    } else {
+      // If video is paused, always show controls
+      setShowControls(true);
+    }
+
+    // Cleanup timeout on unmount or when isPlaying changes
+    return () => {
+      if (controlsTimeoutRef.current) {
+        clearTimeout(controlsTimeoutRef.current);
+      }
+    };
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -61,6 +89,7 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
     <div
       ref={containerRef}
       className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-lg group"
+      onMouseEnter={() => setShowControls(true)}
     >
       <video
         ref={videoRef}
@@ -76,7 +105,11 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
       </video>
 
       {/* Overlay Controls */}
-      <div className="absolute inset-0 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-b from-black/30 via-transparent to-black/60">
+      <div
+        className={`absolute inset-0 flex flex-col justify-between transition-opacity duration-300 bg-gradient-to-b from-black/30 via-transparent to-black/60 ${
+          showControls ? "opacity-100" : "opacity-0"
+        }`}
+      >
         {/* Top Controls */}
         <div className="p-2 flex justify-end">
           <button
@@ -96,7 +129,7 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
           onClick={togglePlay}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
+          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/90 hover:bg-white transition-colors">
             {isPlaying ? (
               <Pause className="w-6 h-6 text-gray-900" />
             ) : (
@@ -137,3 +170,5 @@ export const ProductVideo = ({ video }: ProductVideoProps) => {
     </div>
   );
 };
+
+export default ProductVideo;
