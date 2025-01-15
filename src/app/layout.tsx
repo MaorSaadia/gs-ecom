@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Fotter";
 import ToastProvider from "@/providers/ToastProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const lora = Lora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -32,9 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={lora.className}>
         <Analytics />
         <ToastProvider />
         <Navbar />
