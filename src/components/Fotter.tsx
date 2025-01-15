@@ -46,25 +46,6 @@ const Footer = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {/* Company Info */}
-          {/* <motion.div variants={itemVariants} className="space-y-4">
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              src="/logo.png"
-              alt="logo"
-              className="h-10 w-auto"
-            />
-            <div className="space-y-2">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                href="mailto:info@soapshear.com"
-                className="flex items-center text-gray-700 hover:text-lime-600 text-sm group"
-              >
-                <Mail className="h-4 w-4 mr-2 group-hover:text-lime-500 transition-colors duration-200" />
-                info@gmail.com
-              </motion.a>
-            </div>
-          </motion.div> */}
 
           {/* Customer Service */}
           <motion.div variants={itemVariants}>
