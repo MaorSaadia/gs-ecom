@@ -7,6 +7,10 @@ export async function getProductReviews(productId: string) {
   const publicDir = path.join(process.cwd(), "public");
   const filePath = path.join(publicDir, "reviews", `${productId}.csv`);
 
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+
   try {
     // Read the CSV file
     const fileContent = fs.readFileSync(filePath, "utf-8");
