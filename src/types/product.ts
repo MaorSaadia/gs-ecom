@@ -1,12 +1,19 @@
 // types/product.ts
 
+export type ProductVideo = {
+  url: string;
+  thumbnail?: string;
+  title?: string;
+  description?: string;
+};
+
 export type ProductVariant = {
-  type: string; // e.g., "plugType", "color", "size"
+  type: string;
   options: {
-    value: string; // e.g., "UK", "EU", "US"
-    label: string; // Display name
+    value: string;
+    label: string;
     inStock?: boolean;
-    image?: string; // Optional image URL for the variant
+    image?: string;
   }[];
 };
 
@@ -29,7 +36,7 @@ export type ProductAccordionItem = {
 export type PayLinkItem = {
   quantity: number;
   url: string;
-  variant?: string; // Add variant identifier for different variant pay links
+  variant?: string;
 };
 
 export type PayLinkConfig = {
@@ -57,8 +64,9 @@ export type ProductData = {
     }[];
   };
   gallery: string[];
+  video?: ProductVideo;
   payLink?: PayLinkConfig;
-  variants?: ProductVariant[]; // Add variants array
+  variants?: ProductVariant[];
 };
 
 export type ProductFeatureDetail = {

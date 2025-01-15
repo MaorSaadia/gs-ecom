@@ -11,6 +11,7 @@ import { getProductReviews } from "@/lib/getProductReviews";
 import { ProductInfo } from "@/components/ProductInfo";
 import { ProductFeatures } from "@/components/ProductFeatures";
 import { ProductGallery } from "@/components/ProductGallery";
+import { ProductVideo } from "@/components/ProductVideo";
 // import ProductReviews from "@/components/ProductReviews";
 // import Loading from "@/components/Loading";
 
@@ -92,6 +93,41 @@ export default async function ProductPage({ params }) {
             <ProductFeatures productId={productData.id} />
           </section>
         </div>
+
+        {productData.video && (
+          <>
+            {/* Separator before video section */}
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-lime-200"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-white px-6 py-2 text-sm font-medium text-lime-600 rounded-full shadow-sm">
+                  Watch In Action
+                </span>
+              </div>
+            </div>
+
+            {/* Video section */}
+            <section className="py-8">
+              <div className="max-w-4xl mx-auto px-4">
+                <ProductVideo video={productData.video} />
+              </div>
+            </section>
+
+            {/* Separator after video section */}
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-lime-200"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-white px-6 py-2 text-sm font-medium text-lime-600 rounded-full shadow-sm">
+                  Our Promise
+                </span>
+              </div>
+            </div>
+          </>
+        )}
 
         <section className="py-12 md:py-16 bg-gradient-to-r from-lime-50 via-white to-lime-50 rounded-3xl my-8 shadow-inner cursor-pointer">
           <div className="max-w-5xl mx-auto px-4">

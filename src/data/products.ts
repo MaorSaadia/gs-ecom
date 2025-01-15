@@ -113,23 +113,6 @@ export const products: Record<string, ProductData> = {
     ],
     payLink: {
       links: [
-        // UK plug variants
-        // {
-        //   quantity: 1,
-        //   url: "https://shop.mishbaby.com//_paylink/humidifier-1-uk",
-        //   variant: "UK",
-        // },
-        // {
-        //   quantity: 2,
-        //   url: "https://shop.mishbaby.com//_paylink/humidifier-2-uk",
-        //   variant: "UK",
-        // },
-        // {
-        //   quantity: 3,
-        //   url: "https://shop.mishbaby.com//_paylink/humidifier-3-uk",
-        //   variant: "UK",
-        // },
-
         // EU plug variants
         {
           quantity: 1,
@@ -183,24 +166,6 @@ export const products: Record<string, ProductData> = {
       },
     ],
     accordionItems: [
-      // {
-      //   id: "features",
-      //   title: "Why Choose This Humidifier?",
-      //   content:
-      //     "Experience relaxation and comfort with this 3-in-1 device. It combines a humidifier, aromatherapy diffuser, and night light to transform your bedroom or workspace into a calming sanctuary.",
-      // },
-      // {
-      //   id: "aromatherapy",
-      //   title: "Enhance Your Aromatherapy",
-      //   content:
-      //     "Pair the humidifier with your favorite essential oils to fill the room with delightful scents that help reduce stress and improve focus.",
-      // },
-      // {
-      //   id: "design",
-      //   title: "Elegant Design with Functionality",
-      //   content:
-      //     "The rain cloud design is not only a visual treat but also enhances the ambiance of any room. Adjustable brightness settings allow you to customize the lighting.",
-      // },
       {
         id: "specs",
         title: "Product Specifications",
@@ -228,6 +193,13 @@ export const products: Record<string, ProductData> = {
       "products/mistify/4.jpeg",
       "products/mistify/5.jpeg",
     ],
+    video: {
+      url: "https://video.wixstatic.com/video/f33a90_28019163afa748b089b70e108c73a5ea/720p/mp4/file.mp4",
+      thumbnail: "/products/mistify/main.jpeg",
+      title: "Mistify Rain Cloud Humidifier Oil Diffuser",
+      description:
+        "See how our cloud-shaped humidifier creates a soothing atmosphere",
+    },
     featuresDetail: {
       mainFeatures: [],
       stats: undefined,
