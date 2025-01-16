@@ -88,7 +88,7 @@ export default function OrderShippedEmail({
       <Preview>🎉 Great news! Your order is on its way to you!</Preview>
       <Body style={main}>
         <Container style={container} className="container">
-          <Section style={logoContainer}>
+          {/* <Section style={logoContainer}>
             <Img
               src="https://static.wixstatic.com/media/f33a90_497c42d0d473449ca89f2511557211f2~mv2.png"
               width="100"
@@ -96,7 +96,7 @@ export default function OrderShippedEmail({
               alt="Company Logo"
               style={logo}
             />
-          </Section>
+          </Section> */}
 
           <Section style={content} className="content">
             <Text style={title}>🚚 Your order is on its way!</Text>
@@ -227,16 +227,16 @@ const content = {
   padding: "0 20px",
 };
 
-const logoContainer = {
-  textAlign: "center" as const,
-  marginBottom: "30px",
-};
+// const logoContainer = {
+//   textAlign: "center" as const,
+//   marginBottom: "30px",
+// };
 
-const logo = {
-  margin: "0 auto",
-  maxWidth: "100%",
-  height: "auto",
-};
+// const logo = {
+//   margin: "0 auto",
+//   maxWidth: "100%",
+//   height: "auto",
+// };
 
 const title = {
   fontSize: "24px",

@@ -78,6 +78,10 @@ export async function POST(request: Request) {
     // Send the email
     await transporter.sendMail({
       ...mailOptions,
+      from: {
+        name: "Gs-Ecom",
+        address: "gsecom25@gmail.com",
+      },
       to: customerEmail,
       subject: `Your Order ${orderNumber} Has Been Shipped`,
       html: emailHtml,
